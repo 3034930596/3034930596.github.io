@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/07/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>windows一键创建隐藏账户</title>
     <url>/2022/07/14/%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E8%B4%A6%E6%88%B7/</url>
     <content><![CDATA[<h1 id="手动创建"><a href="#手动创建" class="headerlink" title="手动创建"></a>手动创建</h1><h2 id="方法一：添加-符"><a href="#方法一：添加-符" class="headerlink" title="方法一：添加 $ 符"></a>方法一：添加 $ 符</h2><p>添加隐藏用户并添加到管理员组</p>
@@ -102,6 +84,137 @@
       <tags>
         <tag>Windows</tag>
         <tag>内网渗透</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/07/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>应急响应分析排查学习</title>
+    <url>/2022/06/14/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90%E6%8E%92%E6%9F%A5%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0200713/</url>
+    <content><![CDATA[<h1 id="应急响应分析排查简单学习200713"><a href="#应急响应分析排查简单学习200713" class="headerlink" title="应急响应分析排查简单学习200713"></a>应急响应分析排查简单学习200713</h1><h2 id="Windows分析排查"><a href="#Windows分析排查" class="headerlink" title="Windows分析排查"></a>Windows分析排查</h2><h3 id="文件分析——开机启动文件"><a href="#文件分析——开机启动文件" class="headerlink" title="文件分析——开机启动文件"></a>文件分析——开机启动文件</h3><p>一般情况下恶意文件都会在开机自启，</p>
+<ol>
+<li><p>利用操作系统中的启动菜单<br>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu(开始菜单)\Programs\Startup</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056761.png" alt="image-202207120931460321"></p>
+</li>
+<li><p>利用系统配置 msconfig</p>
+<img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056327.png" alt="image-20220712093526206" style="zoom: 67%;" />
+
+<img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056112.png" alt="image-20220712093507951" style="zoom:50%;" />
+</li>
+<li><p>利用注册表 regedit<br>HKEY_ CURRENT USERS&#x2F; software&#x2F; Microsoft&#x2F;Windows&#x2F; CurrentVersion&#x2F; Run</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056571.png" alt="image-20220712094333354"></p>
+</li>
+</ol>
+<h3 id="文件分析——temp临时异常文件"><a href="#文件分析——temp临时异常文件" class="headerlink" title="文件分析——temp临时异常文件"></a>文件分析——temp临时异常文件</h3><p>temp (临时文件夹) ,位于C:\Documents and Settings\Administrator\I ocal Settings\内。很多临时文件放在这里，用来收藏夹、浏览网页的临时文件、编辑文件等。</p>
+<p>使用运行输入%temp%可以直接打开temp文件夹</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056269.png" alt="image-20220712095517369"></p>
+<p>查看temp文件夹发现PE文件(exe、 dll、sys) ,或者是否具有特别大的tmp文件。</p>
+<h3 id="文件分析——浏览器信息分析"><a href="#文件分析——浏览器信息分析" class="headerlink" title="文件分析——浏览器信息分析"></a>文件分析——浏览器信息分析</h3><p>在被黑客拿下的服务器，很有可能会使用浏览器进行网站的访问。因此我们可以查看浏览器记录查看，探索浏览器是否被使用下载恶意代码。</p>
+<p>利用这个软件可以进行历史记录查找。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056287.png" alt="image-20220712101526364"></p>
+<h3 id="文件分析——文件时间属性"><a href="#文件分析——文件时间属性" class="headerlink" title="文件分析——文件时间属性"></a>文件分析——文件时间属性</h3><p>在Windows系统下，文件属性的时间属性具有:创建时间、修改时间、访问时间(默认情况下禁用)<br>默认情况下，计算机是以修改时间作为展示。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056827.png" alt="image-20220712103624935"></p>
+<h3 id="文件分析——最近打开文件分析"><a href="#文件分析——最近打开文件分析" class="headerlink" title="文件分析——最近打开文件分析"></a>文件分析——最近打开文件分析</h3><p>Windows系统中默认记录系统中最近打开使用的文件信息。<br>可以在目录C:\Documents and Settings\Administrator\Recent下查看，也可以使用win+R打开运行,输入%UserProfile%\Recent查看。然后利用Windows中的筛选条件查看具体时间范围的文件。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056119.png" alt="image-20220712104258066"></p>
+<h3 id="进程分析——可疑进程发现与关闭"><a href="#进程分析——可疑进程发现与关闭" class="headerlink" title="进程分析——可疑进程发现与关闭"></a>进程分析——可疑进程发现与关闭</h3><p>计算机与外部网络通信是建立在TCP或UDP协议上的，并且每一次通信都是具有不同的端口(0~65535) 。如果计算机被木马后， 肯定会与外部网络通信，那么此时就可以通过查看网络连接状态，找到对应的进程ID,然后关闭进程ID就可以关闭连接状态。</p>
+<ol>
+<li><p><code>netstat -ano | find“ESTABLISHED”</code>查看网络建立连接状态</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056072.png" alt="image-20220712145342499"></p>
+</li>
+<li><p><code>tasklist /svc | find“PID”</code>查看具体PID进程对应的程序</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056637.png" alt="image-20220712145815078"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056905.png" alt="image-20220712145805650"></p>
+</li>
+<li><p><code>taskill /PID pid值/T</code>关闭进程</p>
+</li>
+</ol>
+<h3 id="系统信息——Windows计划任务"><a href="#系统信息——Windows计划任务" class="headerlink" title="系统信息——Windows计划任务"></a>系统信息——Windows计划任务</h3><p>在计算机中可以通过设定计划任务,在固定时间执行固定操作。一般情况下，恶意代码也有可能在固定的时间设置执行。<br>使用at命令可以对计划任务进行管理，直接输入at可以查看 当前计算机中保存的计划任务。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056094.png" alt="image-20220712150506360"></p>
+<p>还可以打开任务计划程序</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056811.png" alt="image-20220712150621557"></p>
+<h3 id="系统信息——隐藏账户的发现和删除"><a href="#系统信息——隐藏账户的发现和删除" class="headerlink" title="系统信息——隐藏账户的发现和删除"></a>系统信息——隐藏账户的发现和删除</h3><p>隐藏账号，是指”黑客” 入侵之后为了能够持久保持对计算机访问，而在计算机系统中建立的不轻易被发现的计算机账户。</p>
+<p>最为简单的隐藏账户建立: <code>net user test$ test /add &amp;&amp; net localgroup administrator test$ /add</code></p>
+<p>其中<code>$</code>符号可以导致系统管理员在使用<code>net user</code>时无法查看到<code>test$</code>用户。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131056850.png" alt="image-20220712152719872"></p>
+<p>但是我们可以在计算机管理的本地用户和组里面发现他</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131055959.png" alt="image-20220712152906689"></p>
+<h3 id="恶意进程——发现与关闭"><a href="#恶意进程——发现与关闭" class="headerlink" title="恶意进程——发现与关闭"></a>恶意进程——发现与关闭</h3><p>恶意代码在Windows系统中运行过程中，将以进程的方式进行展示。其中恶意进程执行着各种恶意行为。<br>对于可执行程序，可以直接使用杀毒软件进行查杀，但是并非所有的恶意程序能够被查杀。此时可以手动查杀，使用工具psexplore ,然后利用virustotal.com 进行分析。对恶意程序相关的服务进行关闭。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/image-20220713100006640.png" alt="image-20220713100006640"></p>
+<h3 id="系统信息——补丁的查看和更新"><a href="#系统信息——补丁的查看和更新" class="headerlink" title="系统信息——补丁的查看和更新"></a>系统信息——补丁的查看和更新</h3><p>Windows系统支持补丁以修补漏洞。可以使用<code>systeminfo</code>查看系统信息，并展示对应的系统补J信息编号。<br>也可以在卸载软件中查看系统补丁和第三方软件补丁。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131102436.png" alt="image-20220713110221376"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131102638.png" alt="image-20220713110241580"></p>
+<p>在Win10中使用快捷键<code>win+I</code>然后选择windows更新。其他版本的Windows也具有 Windows Update相关选项，<br>可以进行更新操作。</p>
+<h2 id="Linux分析排查"><a href="#Linux分析排查" class="headerlink" title="Linux分析排查"></a>Linux分析排查</h2><h3 id="文件分析——tmp临时目录文件"><a href="#文件分析——tmp临时目录文件" class="headerlink" title="文件分析——tmp临时目录文件"></a>文件分析——tmp临时目录文件</h3><p>在Linux系统下一切都是文件。其中&#x2F;tmp是一个特别的 临时目录文件。每个用户都可以对它进行读写操作。<br>因此一个普通用户可以对&#x2F;tmp目录执行读写操作。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131120907.png" alt="image-20220713112053829"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131123606.png" alt="image-20220713112327534"></p>
+<h3 id="文件分析——开机启动文件-1"><a href="#文件分析——开机启动文件-1" class="headerlink" title="文件分析——开机启动文件"></a>文件分析——开机启动文件</h3><p>查看开机启动项内容&#x2F;etc&#x2F;init.d&#x2F; ，恶意代码很有可能设置在开机自启动的位置。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131128855.png" alt="image-20220713112857805"></p>
+<p>查看文件时间属性 <code>stat 文件名</code></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131133589.png" alt="image-20220713113331555"></p>
+<p>查看24小时以内被修改的文件</p>
+<p><code>find ./ -mtime 0 -name &quot;*.php&quot;</code></p>
+<p>查看72小时内新增的文件</p>
+<p><code>find ./ -ctime -2 -name &quot;*.php&quot;</code></p>
+<p>权限查找:在linux系统中，如果具有777权限，那么文件很可疑。<br><code>find .7 -iname“* .php” -perm 777</code>其中<code>-iname</code>忽略大小写，<code>-perm</code> 用于设定筛选文件权限</p>
+<h3 id="进程分析——网络连接分析"><a href="#进程分析——网络连接分析" class="headerlink" title="进程分析——网络连接分析"></a>进程分析——网络连接分析</h3><p>在linux中可以使用netstat进行网络连接查看。<br><code>netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships</code><br>具体帮助信息查看<code>man netstat</code><br>常用命令<br><code>netstat -pantl</code> 查看处于<code>tcp</code>网络套接字相关信息。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131453314.png" alt="image-20220713145342257"></p>
+<p><code>netstat -9 pid</code>关闭连接</p>
+<h3 id="进程分析——进程所对应的文件"><a href="#进程分析——进程所对应的文件" class="headerlink" title="进程分析——进程所对应的文件"></a>进程分析——进程所对应的文件</h3><p>使用<code>ps aux</code>查看所有进程信息</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131502818.png" alt="image-20220713150212747"></p>
+<p>使用<code>ps aux | grep PID</code>筛选出具体的<code>PID</code>的进程信息，<code>lsof -i :端口号</code>也可以实现类似的功能</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131505766.png" alt="image-20220713150505730"></p>
+<h3 id="日志分析——登录操作分析"><a href="#日志分析——登录操作分析" class="headerlink" title="日志分析——登录操作分析"></a>日志分析——登录操作分析</h3><p>在Linux做的操作都会被记录到系统日志中，对于登录也可以查看日志信息查看是否有异常登录。<br>last命令<code>last-i | grep -v 0.0.0.0</code>查看登录日志,筛选非本地登录。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131509013.png" alt="image-20220713150958983"></p>
+<p>不筛除本地↓</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131512360.png" alt="image-20220713151200325"></p>
+<p><code>W</code>命令 实时查看当前登录用户</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207131510020.png" alt="image-20220713151043990"></p>
+<h3 id="日志分析——异常用户分析排查"><a href="#日志分析——异常用户分析排查" class="headerlink" title="日志分析——异常用户分析排查"></a>日志分析——异常用户分析排查</h3><p>root 用户在Linux中拥有最高的权限，他的<code>uid</code>和<code>gid</code>都为0。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141540084.png" alt="image-20220714154013033"></p>
+<p>而我们可以利用<code>useradd username</code>来添加用户</p>
+<p>​				   利用<code>password username</code>来添加密码</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141542786.png" alt="image-20220714154230759"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141542576.png" alt="image-20220714154242551"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141542456.png" alt="image-20220714154255429"></p>
+<p>而我们可以利用<code>vim</code>命令来修改<code>/etc/passwd</code>的用户<code>uid和gid</code>的值为0，从而拿到<code>ROOT</code>权限。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141546123.png" alt="image-20220714154616091"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141546052.png" alt="image-20220714154602010"></p>
+<h3 id="日志分析——历史命令查询"><a href="#日志分析——历史命令查询" class="headerlink" title="日志分析——历史命令查询"></a>日志分析——历史命令查询</h3><p>在Linux系统中默认会记录之前执行的命令<code>/root/ .bash history</code>文件中。<br>用户可以使用<code>cat /root/ .bash history </code>进行查看或着使用<code>history </code>命令进行查看</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141550709.png" alt="image-20220714155035647"></p>
+<p>特别注意:<code>wget</code> (可能远程下载木马)、<code>ssh </code>(连接内网主机)、<code>tar zip</code>类命令(数据打包)、系统配置等(命令修改)</p>
+<h3 id="计划任务排查"><a href="#计划任务排查" class="headerlink" title="计划任务排查"></a>计划任务排查</h3><p>在Linux系统中可以使用命令<code>crontab</code>进行计划任务的设定</p>
+<p>编辑设定的计划任务<code>crontab -e</code></p>
+<p>查看设定的计划任务<code>crontab -l</code></p>
+<p>删除设定的计划任务任务<code>crontab -r</code></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141559532.png" alt="image-20220714155917500"></p>
+<h3 id="开机启动项排查"><a href="#开机启动项排查" class="headerlink" title="开机启动项排查"></a>开机启动项排查</h3><p>在Iinux(Debian)系统中<code>/etc/init.d/</code> 目录下保存着开机自启动程序的目录。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141603046.png" alt="image-20220714160335001"></p>
+<p>用户可以直接使用<code>/etc/init.d/ 程序名称 status</code>查看状态。</p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141606378.png" alt="image-20220714160620345">使用<code>update-rc.d 程序名称 disable </code>取消开机自启动。</p>
+]]></content>
+      <categories>
+        <category>应急响应</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>内网渗透</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
