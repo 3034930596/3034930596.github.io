@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/07/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>windows一键创建隐藏账户</title>
     <url>/2022/07/14/%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E8%B4%A6%E6%88%B7/</url>
     <content><![CDATA[<h1 id="手动创建"><a href="#手动创建" class="headerlink" title="手动创建"></a>手动创建</h1><h2 id="方法一：添加-符"><a href="#方法一：添加-符" class="headerlink" title="方法一：添加 $ 符"></a>方法一：添加 $ 符</h2><p>添加隐藏用户并添加到管理员组</p>
@@ -103,6 +85,24 @@
         <tag>Windows</tag>
         <tag>内网渗透</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/07/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>应急响应分析排查学习</title>
@@ -215,73 +215,6 @@
         <tag>Windows</tag>
         <tag>内网渗透</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>等级保护-mysql</title>
-    <url>/2021/10/15/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/</url>
-    <content><![CDATA[<h1 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h1><h2 id="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"><a href="#应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换" class="headerlink" title="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"></a>应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</h2><h3 id="使用如下命令查询账号"><a href="#使用如下命令查询账号" class="headerlink" title="使用如下命令查询账号:"></a>使用如下命令查询账号:</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, host,password <span class="keyword">from</span> mysql.user;</span><br><span class="line">#输出用户列表，查者是否存在相同用户名 </span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618366.png" alt="image-20220714161800298"></p>
-<h3 id="执行如下语句查询是否在空口令用："><a href="#执行如下语句查询是否在空口令用：" class="headerlink" title="执行如下语句查询是否在空口令用："></a>执行如下语句查询是否在空口令用：</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mysql.user <span class="keyword">where</span> length(password)<span class="operator">=</span> <span class="number">0</span> <span class="keyword">or</span> password <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"># 输出结果是否为空</span><br></pre></td></tr></table></figure>
-<p>MySQL身份鉴别通过username+host+password来进行登录验证，鉴别因素三者不能同时为空<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618638.png" alt="image-20220714161824567"></p>
-<h3 id="查看用户口今复杂度相关配置"><a href="#查看用户口今复杂度相关配置" class="headerlink" title="查看用户口今复杂度相关配置:"></a>查看用户口今复杂度相关配置:</h3><p>针对5.6.6之后版本</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;validate_password%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">validate_password_check_user_name:OFF</span><br><span class="line">validate_password_dictionary_file: 字典文件</span><br><span class="line">validate_password_length:8 密码长度</span><br><span class="line">validate_password_mixed_case_count:1 大小写</span><br><span class="line">validate_password_number_count:1 密码中数据长度</span><br><span class="line">validate_password_policy:1 or MEDIUM</span><br><span class="line">validate_password_special_char_count:1 特殊字符</span><br></pre></td></tr></table></figure>
-<h3 id="定期更换"><a href="#定期更换" class="headerlink" title="定期更换"></a>定期更换</h3><p>MySQL5.6.6以后在user表中有一个password_last_changed字段，该字段默认为N修改为Y后可以通过定时器任务来进行密码修改。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> password_expired <span class="keyword">from</span> mysql.user;</span><br><span class="line">#该字段默认为N</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618346.png" alt="image-20220714161856301"></p>
-<h2 id="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"><a href="#应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施" class="headerlink" title="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"></a>应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施</h2><h3 id="登录失败"><a href="#登录失败" class="headerlink" title="登录失败"></a>登录失败</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%max_connect_errors%&#x27;</span>;</span><br><span class="line"># max_connect_errors 是用户输入密码最大错误次数，失败达到最大次数则锁定</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619065.png" alt="image-20220714161913016"></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%timeout%&#x27;</span>;</span><br><span class="line"># 查看返回值Wait_timeout，这个参数是超时重连的时间，每过N秒MySQL就会重启</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619238.png" alt="image-20220714161934175"></p>
-<h2 id="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"><a href="#当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听" class="headerlink" title="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"></a>当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听</h2><p>这个通过询问看看使用的远程链接方式是什么，查询此连接工具是否具备远程连接加密措施</p>
-<h2 id="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"><a href="#应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现" class="headerlink" title="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"></a>应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现</h2><p>询问并核查是否采用双因子登录数据库，且其中一种属于密码技术</p>
-<ul>
-<li>通常情况下都是用户名+口令，且数据库层面实现双因子登录比较困难</li>
-</ul>
-<h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="应对登录的用户分配账户和权限"><a href="#应对登录的用户分配账户和权限" class="headerlink" title="应对登录的用户分配账户和权限"></a>应对登录的用户分配账户和权限</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,host <span class="keyword">from</span> mysql.user;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620971.png" alt="image-20220714162005928"></p>
-<p>询问数据库管理员各个账户的作用与权限，输出结果是否与实际人员相符</p>
-<h2 id="应重命名或删除默认账户，修改默认账户的默认口令"><a href="#应重命名或删除默认账户，修改默认账户的默认口令" class="headerlink" title="应重命名或删除默认账户，修改默认账户的默认口令"></a>应重命名或删除默认账户，修改默认账户的默认口令</h2><p>查看默认用户是否重命名以及修改默认口令</p>
-<h2 id="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"><a href="#应及时删除或停用多余的、过期的账户，避免共享账户的存在；" class="headerlink" title="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"></a>应及时删除或停用多余的、过期的账户，避免共享账户的存在；</h2><p>查看user表再访谈管理员表中用户与现实是否做到一一对应，且无共用，多余，过期的账户</p>
-<h2 id="应授予管理用户所需的最小权限，实现管理用户的权限分离"><a href="#应授予管理用户所需的最小权限，实现管理用户的权限分离" class="headerlink" title="应授予管理用户所需的最小权限，实现管理用户的权限分离"></a>应授予管理用户所需的最小权限，实现管理用户的权限分离</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> Host,<span class="keyword">User</span>,File_priv,Shutdown_priv，grant_priv <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">#</span><br><span class="line"> file_priv  加载服务器主机上的文件</span><br><span class="line"> grant_priv  数据库、表、存储过程或函数</span><br><span class="line"> shutdown_priv  关闭服务器</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
-<p>查看各管理员账户权限设置是否与实际情况对应<br>注；此项至少要包括系统管理员和审计管理员才能算符合<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620093.png" alt="image-20220714162029039"></p>
-<h2 id="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"><a href="#应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则" class="headerlink" title="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"></a>应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则</h2><ol>
-<li>登录不同的用户，验证是否存在越权访问的情形<br>注；通常情况下是由系统管理员来配置策略，基本上算默认符合</li>
-<li>访问控制策略<br> 询问输出的以下权限列是是否与管理员制定的访问控制策略及规则一致<br> <code>mysql&gt;select * from mysql.user\G </code><br> 检查用户权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621923.png" alt="image-20220714162104863"><br> <code>mysql&gt;select * from mysql.db\G</code><br> 检查数据库权限列表<br> <code>mysql&gt;select * from mysql.tables_priv\G</code><br> 检查用户表权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621679.png" alt="image-20220714162120630"></li>
-</ol>
-<h2 id="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"><a href="#访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级" class="headerlink" title="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"></a>访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级</h2><p>此项主要检查访问的主体和客体是什么级别的<br>注；通常情况下数据库层面主体为用户及，客体为数据库表级</p>
-<h2 id="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"><a href="#应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问" class="headerlink" title="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"></a>应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问</h2><h1 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h1><h2 id="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"><a href="#应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计" class="headerlink" title="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"></a>应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;log_%&#x27;</span>;</span><br><span class="line">查看二进制日志、慢查询日志、错误日志、操作日志是否开启</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%general%&#x27;</span>;值为OFF或<span class="number">0</span>表示未开启</span><br><span class="line">核查是否采取第三方工具增强MySQL日志功能。</span><br><span class="line">若有，记录第三方审计工具的审计内容，</span><br><span class="line">查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621341.png" alt="image-20220714162143301"></p>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621831.png" alt="image-20220714162157761"></p>
-<ul>
-<li><p><strong>二进制日志</strong><br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622949.png" alt="image-20220714162220861"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">log_bin = LOG_NAME：         　　             （只读变量）只能通过修改配置文件来指定是否启用二进制日志（全局的）　　　　　#my.cnf配置文件中没有log_bin的配置，表示未开启二进制日志，如果存在log_bin的配置，则表示开启了二进制日志，同时，二进制日志文件的名称将会以log_bin对应的值为文件名前缀，文件默认位置在/var/lib/mysql/下，二进制日志文件的后缀名会进行自动编号，每次日志滚动后，后缀名编号自动加1.</span><br><span class="line">log_bin_basename = /var/lib/mysql/mysql-bin： 指定二进制日志的文件的基名</span><br><span class="line">log_bin_index = /var/lib/mysql/mysql-bin.index：指定二进制日志文件的索引文件</span><br><span class="line">binlog_format = STATEMENT|ROW|MIXED：      　 指定基于哪种方式进行记录　　　　　　　　　　STATEMENT:　　　　　　　　　  　基于“语句”记录　　　　　　　　　　ROW:　　　　　　　　　　　　   　基于“行”记录　　　　　　　　　　MIXED:　　　　　　　　　　　　　 让系统自行判定该基于哪种方式记录sync_binlog = 1|0：                           设定是否启动二进制日志同步功能</span><br><span class="line">             --&gt;每次提交事务，会将缓存中的内存刷新到二进制日志文件中。</span><br><span class="line">             --&gt;默认每个sql语句是一个事务，而且默认事务会自动提交，所以，默认的性能很差　　　　　　　　--&gt;此值为0时，表示当事务提交后，不会立即将内存中的binlog刷新到磁盘中；安全性最差，性能最高　　　　　　　　--&gt;此值为1时，表示每一次事务提交后，都会立即将内存中的二进制文件同步到磁盘中；安全性最高，性能最差　　　　　　　　--&gt;还能设置为N，当设置为3时，表示每3次事务提交后，将binlog从内存刷写到磁盘一次，值设置的越大，有可能丢失的日志数据越多，但性能会越好max_binlog_size = SIZE：                     指定二进制日志文件的上限，超过上限会滚动，以字节为单位（默认为1G，为1073741824B）</span><br><span class="line">max_binlog_cache_size = SIZE：               指定二进制日志缓存空间大小，空间被填满，会自动滚动</span><br><span class="line">sql_log_off = on|off：                       是否将一般的查询操作记录到二进制日志中</span><br><span class="line">sql_log_bin = ON |OFF：                     　指定是否启用二进制日志（会话级别）</span><br><span class="line">log_bin_trust_function_creators = on|off：  　指定是否允许创建可能导致不安全的函数</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>慢查询日志</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%slow%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622984.png" alt="image-20220714162252905"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 slow_query_log = OFF|ON  （0|1）　　　　　　#开启慢查询日志</span><br><span class="line">2 slow_query_log_file = LOCALHOST-SLOW.log #慢查询日志的文件路径</span><br><span class="line">3 long_query_time  　　　　　　　　　　　　　　 #慢查询时长；默认是10s</span><br><span class="line">4 log_slow_rate_limit　　　　　　　　　　　　　 #如果要记录的慢查询日志非常多的话，会按照速率来记录，默认1秒记录一个</span><br><span class="line">5 log_slow_verbosity=full | query_plan　　　 #记录的详细级别</span><br><span class="line">6 log_output 　　　　　　　　　　　　　　　　　　 #指定将记录到的查询保存到什么位置</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>错误日志</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_error%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_warnings%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141623108.png" alt="image-20220714162314055"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 log_error = /var/log/mysql_error.log　　#指定错误日志的输出位置</span><br><span class="line">2 log_warnings 为0， 表示不记录告警信息。</span><br><span class="line">3 log_warnings 为1， 表示告警信息写入错误日志。</span><br><span class="line">4 log_warnings 大于1， 表示各类告警信息，例如有关网络故障的信息和重新连接信息写入错误日志。(默认为2)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>操作日志</strong></p>
-</li>
-</ul>
-<h2 id="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"><a href="#审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息" class="headerlink" title="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"></a>审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</h2><h3 id="执行下列语句"><a href="#执行下列语句" class="headerlink" title="执行下列语句:"></a>执行下列语句:</h3><p>mysql&gt;show master status;查看当前日志<br>根据日志存放路径，查看输出的日志内容</p>
-<h3 id="核查是否采取第三方工具增强MySQL日志功能。"><a href="#核查是否采取第三方工具增强MySQL日志功能。" class="headerlink" title="核查是否采取第三方工具增强MySQL日志功能。"></a>核查是否采取第三方工具增强MySQL日志功能。</h3><p>若有，记录第三方审计工具的审计内容，查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息<br>注；只要开启了审计功能，此项默认符合</p>
-<h2 id="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"><a href="#应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等" class="headerlink" title="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"></a>应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等</h2><p>询问管理员</p>
-<h2 id="应对审计进程进行保护，防止未经授权的中断"><a href="#应对审计进程进行保护，防止未经授权的中断" class="headerlink" title="应对审计进程进行保护，防止未经授权的中断"></a>应对审计进程进行保护，防止未经授权的中断</h2><p>切换开放状态的账户（非root账户）进行测试，看能否中断审计、日志服务：</p>
-]]></content>
-      <categories>
-        <category>等级保护</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-        <tag>等级保护</tag>
       </tags>
   </entry>
   <entry>
@@ -403,6 +336,73 @@
       </categories>
       <tags>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>等级保护-Mysql</title>
+    <url>/2021/10/15/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/</url>
+    <content><![CDATA[<h1 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h1><h2 id="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"><a href="#应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换" class="headerlink" title="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"></a>应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</h2><h3 id="使用如下命令查询账号"><a href="#使用如下命令查询账号" class="headerlink" title="使用如下命令查询账号:"></a>使用如下命令查询账号:</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, host,password <span class="keyword">from</span> mysql.user;</span><br><span class="line">#输出用户列表，查者是否存在相同用户名 </span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618366.png" alt="image-20220714161800298"></p>
+<h3 id="执行如下语句查询是否在空口令用："><a href="#执行如下语句查询是否在空口令用：" class="headerlink" title="执行如下语句查询是否在空口令用："></a>执行如下语句查询是否在空口令用：</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mysql.user <span class="keyword">where</span> length(password)<span class="operator">=</span> <span class="number">0</span> <span class="keyword">or</span> password <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"># 输出结果是否为空</span><br></pre></td></tr></table></figure>
+<p>MySQL身份鉴别通过username+host+password来进行登录验证，鉴别因素三者不能同时为空<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618638.png" alt="image-20220714161824567"></p>
+<h3 id="查看用户口今复杂度相关配置"><a href="#查看用户口今复杂度相关配置" class="headerlink" title="查看用户口今复杂度相关配置:"></a>查看用户口今复杂度相关配置:</h3><p>针对5.6.6之后版本</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;validate_password%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">validate_password_check_user_name:OFF</span><br><span class="line">validate_password_dictionary_file: 字典文件</span><br><span class="line">validate_password_length:8 密码长度</span><br><span class="line">validate_password_mixed_case_count:1 大小写</span><br><span class="line">validate_password_number_count:1 密码中数据长度</span><br><span class="line">validate_password_policy:1 or MEDIUM</span><br><span class="line">validate_password_special_char_count:1 特殊字符</span><br></pre></td></tr></table></figure>
+<h3 id="定期更换"><a href="#定期更换" class="headerlink" title="定期更换"></a>定期更换</h3><p>MySQL5.6.6以后在user表中有一个password_last_changed字段，该字段默认为N修改为Y后可以通过定时器任务来进行密码修改。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> password_expired <span class="keyword">from</span> mysql.user;</span><br><span class="line">#该字段默认为N</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618346.png" alt="image-20220714161856301"></p>
+<h2 id="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"><a href="#应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施" class="headerlink" title="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"></a>应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施</h2><h3 id="登录失败"><a href="#登录失败" class="headerlink" title="登录失败"></a>登录失败</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%max_connect_errors%&#x27;</span>;</span><br><span class="line"># max_connect_errors 是用户输入密码最大错误次数，失败达到最大次数则锁定</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619065.png" alt="image-20220714161913016"></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%timeout%&#x27;</span>;</span><br><span class="line"># 查看返回值Wait_timeout，这个参数是超时重连的时间，每过N秒MySQL就会重启</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619238.png" alt="image-20220714161934175"></p>
+<h2 id="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"><a href="#当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听" class="headerlink" title="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"></a>当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听</h2><p>这个通过询问看看使用的远程链接方式是什么，查询此连接工具是否具备远程连接加密措施</p>
+<h2 id="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"><a href="#应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现" class="headerlink" title="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"></a>应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现</h2><p>询问并核查是否采用双因子登录数据库，且其中一种属于密码技术</p>
+<ul>
+<li>通常情况下都是用户名+口令，且数据库层面实现双因子登录比较困难</li>
+</ul>
+<h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="应对登录的用户分配账户和权限"><a href="#应对登录的用户分配账户和权限" class="headerlink" title="应对登录的用户分配账户和权限"></a>应对登录的用户分配账户和权限</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,host <span class="keyword">from</span> mysql.user;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620971.png" alt="image-20220714162005928"></p>
+<p>询问数据库管理员各个账户的作用与权限，输出结果是否与实际人员相符</p>
+<h2 id="应重命名或删除默认账户，修改默认账户的默认口令"><a href="#应重命名或删除默认账户，修改默认账户的默认口令" class="headerlink" title="应重命名或删除默认账户，修改默认账户的默认口令"></a>应重命名或删除默认账户，修改默认账户的默认口令</h2><p>查看默认用户是否重命名以及修改默认口令</p>
+<h2 id="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"><a href="#应及时删除或停用多余的、过期的账户，避免共享账户的存在；" class="headerlink" title="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"></a>应及时删除或停用多余的、过期的账户，避免共享账户的存在；</h2><p>查看user表再访谈管理员表中用户与现实是否做到一一对应，且无共用，多余，过期的账户</p>
+<h2 id="应授予管理用户所需的最小权限，实现管理用户的权限分离"><a href="#应授予管理用户所需的最小权限，实现管理用户的权限分离" class="headerlink" title="应授予管理用户所需的最小权限，实现管理用户的权限分离"></a>应授予管理用户所需的最小权限，实现管理用户的权限分离</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> Host,<span class="keyword">User</span>,File_priv,Shutdown_priv，grant_priv <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">#</span><br><span class="line"> file_priv  加载服务器主机上的文件</span><br><span class="line"> grant_priv  数据库、表、存储过程或函数</span><br><span class="line"> shutdown_priv  关闭服务器</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+<p>查看各管理员账户权限设置是否与实际情况对应<br>注；此项至少要包括系统管理员和审计管理员才能算符合<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620093.png" alt="image-20220714162029039"></p>
+<h2 id="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"><a href="#应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则" class="headerlink" title="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"></a>应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则</h2><ol>
+<li>登录不同的用户，验证是否存在越权访问的情形<br>注；通常情况下是由系统管理员来配置策略，基本上算默认符合</li>
+<li>访问控制策略<br> 询问输出的以下权限列是是否与管理员制定的访问控制策略及规则一致<br> <code>mysql&gt;select * from mysql.user\G </code><br> 检查用户权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621923.png" alt="image-20220714162104863"><br> <code>mysql&gt;select * from mysql.db\G</code><br> 检查数据库权限列表<br> <code>mysql&gt;select * from mysql.tables_priv\G</code><br> 检查用户表权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621679.png" alt="image-20220714162120630"></li>
+</ol>
+<h2 id="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"><a href="#访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级" class="headerlink" title="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"></a>访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级</h2><p>此项主要检查访问的主体和客体是什么级别的<br>注；通常情况下数据库层面主体为用户及，客体为数据库表级</p>
+<h2 id="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"><a href="#应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问" class="headerlink" title="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"></a>应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问</h2><h1 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h1><h2 id="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"><a href="#应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计" class="headerlink" title="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"></a>应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;log_%&#x27;</span>;</span><br><span class="line">查看二进制日志、慢查询日志、错误日志、操作日志是否开启</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%general%&#x27;</span>;值为OFF或<span class="number">0</span>表示未开启</span><br><span class="line">核查是否采取第三方工具增强MySQL日志功能。</span><br><span class="line">若有，记录第三方审计工具的审计内容，</span><br><span class="line">查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621341.png" alt="image-20220714162143301"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621831.png" alt="image-20220714162157761"></p>
+<ul>
+<li><p><strong>二进制日志</strong><br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622949.png" alt="image-20220714162220861"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">log_bin = LOG_NAME：         　　             （只读变量）只能通过修改配置文件来指定是否启用二进制日志（全局的）　　　　　#my.cnf配置文件中没有log_bin的配置，表示未开启二进制日志，如果存在log_bin的配置，则表示开启了二进制日志，同时，二进制日志文件的名称将会以log_bin对应的值为文件名前缀，文件默认位置在/var/lib/mysql/下，二进制日志文件的后缀名会进行自动编号，每次日志滚动后，后缀名编号自动加1.</span><br><span class="line">log_bin_basename = /var/lib/mysql/mysql-bin： 指定二进制日志的文件的基名</span><br><span class="line">log_bin_index = /var/lib/mysql/mysql-bin.index：指定二进制日志文件的索引文件</span><br><span class="line">binlog_format = STATEMENT|ROW|MIXED：      　 指定基于哪种方式进行记录　　　　　　　　　　STATEMENT:　　　　　　　　　  　基于“语句”记录　　　　　　　　　　ROW:　　　　　　　　　　　　   　基于“行”记录　　　　　　　　　　MIXED:　　　　　　　　　　　　　 让系统自行判定该基于哪种方式记录sync_binlog = 1|0：                           设定是否启动二进制日志同步功能</span><br><span class="line">             --&gt;每次提交事务，会将缓存中的内存刷新到二进制日志文件中。</span><br><span class="line">             --&gt;默认每个sql语句是一个事务，而且默认事务会自动提交，所以，默认的性能很差　　　　　　　　--&gt;此值为0时，表示当事务提交后，不会立即将内存中的binlog刷新到磁盘中；安全性最差，性能最高　　　　　　　　--&gt;此值为1时，表示每一次事务提交后，都会立即将内存中的二进制文件同步到磁盘中；安全性最高，性能最差　　　　　　　　--&gt;还能设置为N，当设置为3时，表示每3次事务提交后，将binlog从内存刷写到磁盘一次，值设置的越大，有可能丢失的日志数据越多，但性能会越好max_binlog_size = SIZE：                     指定二进制日志文件的上限，超过上限会滚动，以字节为单位（默认为1G，为1073741824B）</span><br><span class="line">max_binlog_cache_size = SIZE：               指定二进制日志缓存空间大小，空间被填满，会自动滚动</span><br><span class="line">sql_log_off = on|off：                       是否将一般的查询操作记录到二进制日志中</span><br><span class="line">sql_log_bin = ON |OFF：                     　指定是否启用二进制日志（会话级别）</span><br><span class="line">log_bin_trust_function_creators = on|off：  　指定是否允许创建可能导致不安全的函数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>慢查询日志</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%slow%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622984.png" alt="image-20220714162252905"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 slow_query_log = OFF|ON  （0|1）　　　　　　#开启慢查询日志</span><br><span class="line">2 slow_query_log_file = LOCALHOST-SLOW.log #慢查询日志的文件路径</span><br><span class="line">3 long_query_time  　　　　　　　　　　　　　　 #慢查询时长；默认是10s</span><br><span class="line">4 log_slow_rate_limit　　　　　　　　　　　　　 #如果要记录的慢查询日志非常多的话，会按照速率来记录，默认1秒记录一个</span><br><span class="line">5 log_slow_verbosity=full | query_plan　　　 #记录的详细级别</span><br><span class="line">6 log_output 　　　　　　　　　　　　　　　　　　 #指定将记录到的查询保存到什么位置</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>错误日志</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_error%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_warnings%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141623108.png" alt="image-20220714162314055"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 log_error = /var/log/mysql_error.log　　#指定错误日志的输出位置</span><br><span class="line">2 log_warnings 为0， 表示不记录告警信息。</span><br><span class="line">3 log_warnings 为1， 表示告警信息写入错误日志。</span><br><span class="line">4 log_warnings 大于1， 表示各类告警信息，例如有关网络故障的信息和重新连接信息写入错误日志。(默认为2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>操作日志</strong></p>
+</li>
+</ul>
+<h2 id="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"><a href="#审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息" class="headerlink" title="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"></a>审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</h2><h3 id="执行下列语句"><a href="#执行下列语句" class="headerlink" title="执行下列语句:"></a>执行下列语句:</h3><p>mysql&gt;show master status;查看当前日志<br>根据日志存放路径，查看输出的日志内容</p>
+<h3 id="核查是否采取第三方工具增强MySQL日志功能。"><a href="#核查是否采取第三方工具增强MySQL日志功能。" class="headerlink" title="核查是否采取第三方工具增强MySQL日志功能。"></a>核查是否采取第三方工具增强MySQL日志功能。</h3><p>若有，记录第三方审计工具的审计内容，查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息<br>注；只要开启了审计功能，此项默认符合</p>
+<h2 id="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"><a href="#应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等" class="headerlink" title="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"></a>应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等</h2><p>询问管理员</p>
+<h2 id="应对审计进程进行保护，防止未经授权的中断"><a href="#应对审计进程进行保护，防止未经授权的中断" class="headerlink" title="应对审计进程进行保护，防止未经授权的中断"></a>应对审计进程进行保护，防止未经授权的中断</h2><p>切换开放状态的账户（非root账户）进行测试，看能否中断审计、日志服务：</p>
+]]></content>
+      <categories>
+        <category>等级保护</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+        <tag>等级保护</tag>
       </tags>
   </entry>
 </search>
